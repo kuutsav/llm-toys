@@ -42,7 +42,7 @@ setuptools.setup(
     version=find_version("llm_toys", "__init__.py"),
     author="Kumar Utsav",
     author_email="krum.utsav@gmail.com",
-    description="",
+    description="Production-ready small LLMs fine-tuned for diverse tasks, all without an OpenAI key.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=parse_requirements("requirements.txt"),
