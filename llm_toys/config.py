@@ -1,13 +1,16 @@
 from pathlib import Path
-from typing import TYPE_CHECKING
+
+import torch
+from transformers import BitsAndBytesConfig
 
 
-if TYPE_CHECKING:
-    from transformers import BitsAndBytesConfig
-
-
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 DATA_DIR = Path(__file__).parent.parent / "data"
+
+EOC_FORMAT = "### END"
 DEFAULT_3B_MODEL = "togethercomputer/RedPajama-INCITE-Base-3B-v1"
+DEFAULT_7B_MODEL = "tiiuae/falcon-7b"
+
 TASK_TYPES = {"paraphrase_tone"}
 
 

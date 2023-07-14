@@ -15,12 +15,8 @@ with open("README.md", "r") as fh:
 
 
 def parse_requirements(file_name: str) -> List[str]:
-    with open(file_name) as f:
-        return [
-            require.strip()
-            for require in f
-            if require.strip() and not require.startswith("#")
-        ]
+    with open(file_name, "r") as f:
+        return [require.strip() for require in f if require.strip() and not require.startswith("#")]
 
 
 def read(*parts):

@@ -1,24 +1,27 @@
 import json
+from typing import TYPE_CHECKING
 
 from llm_toys.config import DATA_DIR
-from llm_toys.prompts import PARAPHRASE_INSTRUCTION, TONE_CHANGE_INSTRUCTION
+from llm_toys.prompts import PARAPHRASE_TRAIN_FORMAT, TONE_CHANGE_TRAIN_FORMAT
 
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 paraphrase_tone_data_f = DATA_DIR / "paraphrase_tone.json"
-paraphrase_tone_training_txt = DATA_DIR / "paraphrase_tone_training.txt"
 
 
-def load_json(fname: str) -> dict:
+def load_json(fname: str | Path) -> dict:
     with open(fname, "r") as f:
         return json.load(f)
 
 
-def save_json(fname: str, data: dict) -> None:
+def save_json(fname: str | Path, data: dict) -> None:
     with open(fname, "w") as f:
         json.dump(data, f)
 
 
-def save_text(fname: str, data: str) -> None:
+def save_text(fname: str | Path, data: str) -> None:
     with open(fname, "w") as f:
         f.write(data)
 
@@ -47,15 +50,15 @@ def paraphrase_tone_training_data(print_token_stats: bool = False) -> list[str]:
     for d in data:
         # Tone: Original -> Casual, Professional, Witty
         # Tone: Casual -> Professional, Witty
-        for start_tone in ["original", "casual"]:
+        for start_tone in ["original"]:
             for end_tone in ["casual", "professional", "witty"]:
                 if start_tone == end_tone:
                     continue
                 training_data.append(
-                    TONE_CHANGE_INSTRUCTION.format(tone=end_tone, input_text=d[start_tone], response=d[end_tone])
+                    TONE_CHANGE_TRAIN_FORMAT.format(tone=end_tone, input_text=d[start_tone], response=d[end_tone])
                 )
         # Paraphrase: Original -> Paraphrase
-        training_data.append(PARAPHRASE_INSTRUCTION.format(input_text=d["original"], response=d["paraphrase"]))
+        training_data.append(PARAPHRASE_TRAIN_FORMAT.format(input_text=d["original"], response=d["paraphrase"]))
 
     if print_token_stats:
         token_stats(training_data)

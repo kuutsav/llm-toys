@@ -83,7 +83,7 @@ class PeftQLoraTrainer:
 
     @staticmethod
     def get_train_evaluation_texts(eval_ratio: float, data: list[str]) -> tuple[list[str], list[str]]:
-        val_ixs = []
+        val_ixs = set()
         if eval_ratio:
             n_val = int(eval_ratio * len(data))
             val_ixs = set(random.sample(range(len(data)), k=n_val))
@@ -181,8 +181,8 @@ if __name__ == "__main__":
     parser.add_argument("--gradient_accumulation_steps", type=int, default=4, help="Gradient accumulation steps.")
     parser.add_argument("--num_train_epochs", type=int, default=5, help="# Epochs.")
     parser.add_argument("--learning_rate", type=float, default=2e-4, help="Learning rate.")
-    parser.add_argument("--logging_steps", type=int, default=50, help="Logging steps.")
-    parser.add_argument("--eval_steps", type=int, default=50, help="Eval steps.")
+    parser.add_argument("--logging_steps", type=int, default=100, help="Logging steps.")
+    parser.add_argument("--eval_steps", type=int, default=100, help="Eval steps.")
     parser.add_argument("--use_aim", action=argparse.BooleanOptionalAction, help="To use AIM for logging or not.")
     args = parser.parse_args()
 
