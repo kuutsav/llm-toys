@@ -1,4 +1,8 @@
-__version__ = "0.0.6"
+__version__ = "0.0.7"
+
+
+from pathlib import Path
+import sys
 
 
 print(
@@ -7,3 +11,5 @@ print(
     "main brach of transformers and peft. Once transformers version 4.31.0 and peft version 0.4.0 is "
     "published to pypi we will use the published version.\033[0m"
 )
+
+sys.path.append(str(Path(__file__).parent / "hf"))

@@ -1,8 +1,7 @@
 from pathlib import Path
 
 import torch
-
-from llm_toys.hf.transformers import BitsAndBytesConfig
+from transformers import BitsAndBytesConfig
 
 
 DEVICE = "mps" if torch.backends.mps.is_available() else torch.device("cuda" if torch.cuda.is_available() else "cpu")
