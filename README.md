@@ -38,21 +38,15 @@ paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.")
 
 #### Tone change
 ```python
-paraphraser.paraphrase(
-    "Our prduucts come iwth a satisfaction guarantee.", "formal", tone="casual"
-)
+paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="casual")
 # "We've got your back! Our products come with a satisfaction guarantee."
 
-paraphraser.paraphrase(
-    "Our prduucts come iwth a satisfaction guarantee.", "formal", tone="professional"
-)
+paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="professional")
 # "We stand behind our products with a satisfaction guarantee."
 
-paraphraser.paraphrase(
-    "Our prduucts come iwth a satisfaction guarantee.", "formal", tone="witty"
-)
-# "We put our money where our product is! Our satisfaction guarantee ensures you'll be doing happy
-# dances with our products!"
+paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="witty")
+# "We put our money where our product is! Our satisfaction guarantee
+# ensures you'll be doing happy dances with our products!"
 ```
 
 ## Roadmap
