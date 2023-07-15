@@ -2,17 +2,17 @@ import argparse
 import random
 
 from loguru import logger
-from peft import get_peft_model, LoraConfig, prepare_model_for_kbit_training
 from torch.utils.data import Dataset
-from transformers import (
+
+from llm_toys.config import DEFAULT_3B_MODEL, get_bnb_config, TASK_TYPES
+from llm_toys.hf.peft import get_peft_model, LoraConfig, prepare_model_for_kbit_training
+from llm_toys.hf.transformers import (
     AutoTokenizer,
     AutoModelForCausalLM,
     DataCollatorForLanguageModeling,
     Trainer,
     TrainingArguments,
 )
-
-from llm_toys.config import DEFAULT_3B_MODEL, get_bnb_config, TASK_TYPES
 from llm_toys.utils import paraphrase_tone_training_data
 
 

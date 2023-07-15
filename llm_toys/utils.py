@@ -28,8 +28,8 @@ def save_text(fname: str | Path, data: str) -> None:
 
 
 def token_stats(texts: list[str]) -> None:
-    from transformers import AutoTokenizer
     from llm_toys.config import DEFAULT_3B_MODEL
+    from llm_toys.hf.transformers import AutoTokenizer
 
     tokenier = AutoTokenizer.from_pretrained(DEFAULT_3B_MODEL)
 

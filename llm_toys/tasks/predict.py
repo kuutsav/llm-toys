@@ -1,13 +1,13 @@
-from peft import PeftModel
 import torch
-from transformers import (
+
+from llm_toys.config import DEVICE, EOC_FORMAT, get_bnb_config
+from llm_toys.hf.peft import PeftModel
+from llm_toys.hf.transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     StoppingCriteria,
     StoppingCriteriaList,
 )
-
-from llm_toys.config import DEVICE, EOC_FORMAT, get_bnb_config
 
 
 class StoppingCriteriaSub(StoppingCriteria):
