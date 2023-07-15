@@ -24,23 +24,22 @@ class StoppingCriteriaSub(StoppingCriteria):
 class PeftQLoraPredictor:
     """Peft quantized lora model predictor for a model finetuned on generative task."""
 
-    def __init__(self, model_name: str, peft_model_id: str, max_length: int = 512, skip_model_int: bool = False):
+    def __init__(self, model_name: str, peft_model_id: str, max_length: int = 512):
         self.model_name = model_name
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.max_length = max_length
         self._eoc_ids = self.tokenizer(EOC_FORMAT, return_tensors="pt")["input_ids"][0]
 
-        if not skip_model_int:
-            self.model = AutoModelForCausalLM.from_pretrained(
-                self.model_name,
-                device_map={"": 0},
-                trust_remote_code=True,
-                quantization_config=get_bnb_config(),
-            )
-            self.model = PeftModel.from_pretrained(self.model, peft_model_id)
-            self.model = self.model.to(DEVICE)
-            self.model.eval()
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_name,
+            device_map={"": 0},
+            trust_remote_code=True,
+            quantization_config=get_bnb_config(),
+        )
+        self.model = PeftModel.from_pretrained(self.model, peft_model_id)
+        self.model = self.model.to(DEVICE)
+        self.model.eval()
 
         self.stopping_criteria = StoppingCriteriaList(
             [StoppingCriteriaSub(stops=self.tokenizer(EOC_FORMAT)["input_ids"])]
@@ -91,11 +90,9 @@ class PeftQLoraPredictor:
 
         out_texts = [self.tokenizer.decode(o, skip_special_tokens=True) for o in out]
         preds = []
-        for o in out_texts:
-            response_ix = o.find("### Response:")
-            if response_ix != -1:
-                response_txt = o.split("### Response:")[1]
-                end_ix = response_txt.find(EOC_FORMAT)
-                if end_ix != -1:
-                    preds.append(response_txt[:end_ix].strip())
+        for txt in out_texts:
+            response_txt = txt[len(input_text) :]
+            end_ix = response_txt.find(EOC_FORMAT)
+            if end_ix != -1:
+                preds.append(response_txt[:end_ix].strip())
         return preds
