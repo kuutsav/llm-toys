@@ -1,5 +1,5 @@
-from .paraphrase import ParaPhraser
+from .paraphrase import Paraphraser
 from .tone_change import ToneChanger
 
 
-__all__ = ["ParaPhraser", "ToneChanger"]
+__all__ = ["Paraphraser", "ToneChanger"]

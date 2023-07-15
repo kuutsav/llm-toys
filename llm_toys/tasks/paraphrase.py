@@ -19,7 +19,7 @@ TXTS_TO_EXPLORE = """
 """.strip()
 
 
-class ParaPhraser(PeftQLoraPredictor):
+class Paraphraser(PeftQLoraPredictor):
     prompt = PARAPHRASE_PREDICT_FORMAT
 
     def __init__(self, model_size: str = "3B", max_length: int = 512):
@@ -60,4 +60,4 @@ class ParaPhraser(PeftQLoraPredictor):
 
         n_tokens = sum((len(self.tokenizer.encode(txt)) for txt in preds))
         n_tokens_per_sec = n_tokens / total_time
-        print(f"---\nGenerated {len(preds)} predictions in {total_time:.2f}s: {n_tokens_per_sec:.2f} tokens/s")
+        print(f"\n---\nGenerated {len(preds)} predictions in {total_time:.2f}s: {n_tokens_per_sec:.2f} tokens/s")
