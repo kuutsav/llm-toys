@@ -877,9 +877,7 @@ def load_tf_weights(model, resolved_archive_file, ignore_mismatched_sizes=False,
     else:
         load_function = load_tf_weights_from_h5
 
-    return load_function(
-        model, resolved_archive_file, ignore_mismatched_sizes=ignore_mismatched_sizes, _prefix=_prefix
-    )
+    return load_function(model, resolved_archive_file, ignore_mismatched_sizes=ignore_mismatched_sizes, _prefix=_prefix)
 
 
 def load_tf_weights_from_h5(model, resolved_archive_file, ignore_mismatched_sizes=False, _prefix=None):

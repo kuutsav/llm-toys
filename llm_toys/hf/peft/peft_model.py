@@ -368,9 +368,7 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
             )
             if peft_config.num_transformer_submodules == 2:
                 past_key_values = torch.cat([past_key_values, past_key_values], dim=2)
-            past_key_values = past_key_values.permute([2, 0, 3, 1, 4]).split(
-                peft_config.num_transformer_submodules * 2
-            )
+            past_key_values = past_key_values.permute([2, 0, 3, 1, 4]).split(peft_config.num_transformer_submodules * 2)
             if TRANSFORMERS_MODELS_TO_PREFIX_TUNING_POSTPROCESS_MAPPING.get(self.config.model_type, None) is not None:
                 post_process_fn = TRANSFORMERS_MODELS_TO_PREFIX_TUNING_POSTPROCESS_MAPPING[self.config.model_type]
                 past_key_values = post_process_fn(past_key_values)
@@ -1133,9 +1131,7 @@ class PeftModelForSeq2SeqLM(PeftModel):
 
             if attention_mask is not None:
                 # concat prompt attention mask
-                prefix_attention_mask = torch.ones(batch_size, peft_config.num_virtual_tokens).to(
-                    attention_mask.device
-                )
+                prefix_attention_mask = torch.ones(batch_size, peft_config.num_virtual_tokens).to(attention_mask.device)
                 kwargs["attention_mask"] = torch.cat((prefix_attention_mask, attention_mask), dim=1)
 
             prompts = self.get_prompt(batch_size=batch_size)
@@ -1159,9 +1155,7 @@ class PeftModelForSeq2SeqLM(PeftModel):
 
             if attention_mask is not None:
                 # concat prompt attention mask
-                prefix_attention_mask = torch.ones(batch_size, peft_config.num_virtual_tokens).to(
-                    attention_mask.device
-                )
+                prefix_attention_mask = torch.ones(batch_size, peft_config.num_virtual_tokens).to(attention_mask.device)
                 kwargs["attention_mask"] = torch.cat((prefix_attention_mask, attention_mask), dim=1)
             # concat prompt labels
             if labels is not None:

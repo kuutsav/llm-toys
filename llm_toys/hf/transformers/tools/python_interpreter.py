@@ -62,9 +62,7 @@ def evaluate(code: str, tools: Dict[str, Callable], state=None, chat_mode=False)
         except InterpretorError as e:
             msg = f"Evaluation of the code stopped at line {idx} before the end because of the following error"
             if chat_mode:
-                msg += (
-                    f". Copy paste the following error message and send it back to the agent:\nI get an error: '{e}'"
-                )
+                msg += f". Copy paste the following error message and send it back to the agent:\nI get an error: '{e}'"
             else:
                 msg += f":\n{e}"
             print(msg)

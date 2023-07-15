@@ -77,9 +77,7 @@ class SquadDataTrainingArguments:
             )
         },
     )
-    overwrite_cache: bool = field(
-        default=False, metadata={"help": "Overwrite the cached training and evaluation sets"}
-    )
+    overwrite_cache: bool = field(default=False, metadata={"help": "Overwrite the cached training and evaluation sets"})
     version_2_with_negative: bool = field(
         default=False, metadata={"help": "If true, the SQuAD examples contain some that do not have an answer."}
     )

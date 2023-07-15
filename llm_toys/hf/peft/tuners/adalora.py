@@ -285,9 +285,7 @@ class AdaLoraModel(LoraModel):
             for layer in ["lora_E", "lora_A", "lora_B"]:
                 key = f"base_model.model.{prefix}.{layer}.{adapter_name}"
                 if layer != "lora_B":
-                    state_dict[key] = (
-                        state_dict[key][rank_idx] if rank != state_dict[key].shape[0] else state_dict[key]
-                    )
+                    state_dict[key] = state_dict[key][rank_idx] if rank != state_dict[key].shape[0] else state_dict[key]
                 else:
                     state_dict[key] = (
                         state_dict[key][:, rank_idx] if rank != state_dict[key].shape[1] else state_dict[key]

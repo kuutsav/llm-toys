@@ -131,9 +131,7 @@ class BatchFeature(UserDict):
         # Get a function reference for the correct framework
         if tensor_type == TensorType.TENSORFLOW:
             if not is_tf_available():
-                raise ImportError(
-                    "Unable to convert output to TensorFlow tensors format, TensorFlow is not installed."
-                )
+                raise ImportError("Unable to convert output to TensorFlow tensors format, TensorFlow is not installed.")
             import tensorflow as tf
 
             as_tensor = tf.constant

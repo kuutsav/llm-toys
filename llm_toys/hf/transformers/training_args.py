@@ -1073,9 +1073,7 @@ class TrainingArguments:
             )
         },
     )
-    dataloader_pin_memory: bool = field(
-        default=True, metadata={"help": "Whether or not to pin memory for DataLoader."}
-    )
+    dataloader_pin_memory: bool = field(default=True, metadata={"help": "Whether or not to pin memory for DataLoader."})
     skip_memory_metrics: bool = field(
         default=True, metadata={"help": "Whether or not to skip adding of memory profiler reports to metrics."}
     )
@@ -1100,9 +1098,7 @@ class TrainingArguments:
     hub_private_repo: bool = field(default=False, metadata={"help": "Whether the model repository is private or not."})
     gradient_checkpointing: bool = field(
         default=False,
-        metadata={
-            "help": "If True, use gradient checkpointing to save memory at the expense of slower backward pass."
-        },
+        metadata={"help": "If True, use gradient checkpointing to save memory at the expense of slower backward pass."},
     )
     include_inputs_for_metrics: bool = field(
         default=False, metadata={"help": "Whether or not the inputs will be passed to the `compute_metrics` function."}
@@ -1169,9 +1165,7 @@ class TrainingArguments:
     )
     ddp_timeout: Optional[int] = field(
         default=1800,
-        metadata={
-            "help": "Overrides the default timeout for distributed training (value should be given in seconds)."
-        },
+        metadata={"help": "Overrides the default timeout for distributed training (value should be given in seconds)."},
     )
     torch_compile: bool = field(
         default=False, metadata={"help": "If set to `True`, the model will be wrapped in `torch.compile`."}
@@ -1730,9 +1724,7 @@ class TrainingArguments:
             del os.environ["ACCELERATE_USE_DEEPSPEED"]
             self._n_gpu = 1
         else:
-            self.distributed_state = PartialState(
-                backend=self.ddp_backend, timeout=timedelta(seconds=self.ddp_timeout)
-            )
+            self.distributed_state = PartialState(backend=self.ddp_backend, timeout=timedelta(seconds=self.ddp_timeout))
             self._n_gpu = 1
         if not is_sagemaker_mp_enabled():
             device = self.distributed_state.device
@@ -1821,9 +1813,9 @@ class TrainingArguments:
             return ParallelMode.SAGEMAKER_MODEL_PARALLEL
         elif is_sagemaker_dp_enabled():
             return ParallelMode.SAGEMAKER_DATA_PARALLEL
-        elif (
-            self.distributed_state is not None and self.distributed_state.distributed_type != DistributedType.NO
-        ) or (self.distributed_state is None and self.local_rank != -1):
+        elif (self.distributed_state is not None and self.distributed_state.distributed_type != DistributedType.NO) or (
+            self.distributed_state is None and self.local_rank != -1
+        ):
             return ParallelMode.DISTRIBUTED
         elif self.n_gpu > 1:
             return ParallelMode.NOT_DISTRIBUTED
@@ -1986,9 +1978,7 @@ class TrainingArguments:
         """
         Get number of steps used for a linear warmup.
         """
-        warmup_steps = (
-            self.warmup_steps if self.warmup_steps > 0 else math.ceil(num_training_steps * self.warmup_ratio)
-        )
+        warmup_steps = self.warmup_steps if self.warmup_steps > 0 else math.ceil(num_training_steps * self.warmup_ratio)
         return warmup_steps
 
     def to_dict(self):

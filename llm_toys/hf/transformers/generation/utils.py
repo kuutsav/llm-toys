@@ -702,9 +702,7 @@ class GenerationMixin:
             return decoder_start_token_id
         elif bos_token_id is not None:
             return bos_token_id
-        raise ValueError(
-            "`decoder_start_token_id` or `bos_token_id` has to be defined for encoder-decoder generation."
-        )
+        raise ValueError("`decoder_start_token_id` or `bos_token_id` has to be defined for encoder-decoder generation.")
 
     @staticmethod
     def _expand_inputs_for_generation(
@@ -813,17 +811,13 @@ class GenerationMixin:
         if generation_config.top_p is not None and generation_config.top_p < 1.0:
             warpers.append(TopPLogitsWarper(top_p=generation_config.top_p, min_tokens_to_keep=min_tokens_to_keep))
         if generation_config.typical_p is not None and generation_config.typical_p < 1.0:
-            warpers.append(
-                TypicalLogitsWarper(mass=generation_config.typical_p, min_tokens_to_keep=min_tokens_to_keep)
-            )
+            warpers.append(TypicalLogitsWarper(mass=generation_config.typical_p, min_tokens_to_keep=min_tokens_to_keep))
         if generation_config.epsilon_cutoff is not None and 0.0 < generation_config.epsilon_cutoff < 1.0:
             warpers.append(
                 EpsilonLogitsWarper(epsilon=generation_config.epsilon_cutoff, min_tokens_to_keep=min_tokens_to_keep)
             )
         if generation_config.eta_cutoff is not None and 0.0 < generation_config.eta_cutoff < 1.0:
-            warpers.append(
-                EtaLogitsWarper(epsilon=generation_config.eta_cutoff, min_tokens_to_keep=min_tokens_to_keep)
-            )
+            warpers.append(EtaLogitsWarper(epsilon=generation_config.eta_cutoff, min_tokens_to_keep=min_tokens_to_keep))
         # `LogitNormalization` should always be the last logit processor, when present
         if generation_config.renormalize_logits is True:
             warpers.append(LogitNormalization())
@@ -879,9 +873,7 @@ class GenerationMixin:
                     )
                 )
             else:
-                raise ValueError(
-                    "It's impossible to use `encoder_no_repeat_ngram_size` with decoder-only architecture"
-                )
+                raise ValueError("It's impossible to use `encoder_no_repeat_ngram_size` with decoder-only architecture")
         if generation_config.bad_words_ids is not None:
             processors.append(
                 NoBadWordsLogitsProcessor(generation_config.bad_words_ids, generation_config.eos_token_id)
@@ -2038,9 +2030,7 @@ class GenerationMixin:
 
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
-                        if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        (outputs.decoder_hidden_states,) if self.config.is_encoder_decoder else (outputs.hidden_states,)
                     )
 
             # Replicates the new past_key_values to match the `top_k` candidates
@@ -2387,9 +2377,7 @@ class GenerationMixin:
 
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
-                        if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        (outputs.decoder_hidden_states,) if self.config.is_encoder_decoder else (outputs.hidden_states,)
                     )
 
             # argmax
@@ -2668,9 +2656,7 @@ class GenerationMixin:
 
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
-                        if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        (outputs.decoder_hidden_states,) if self.config.is_encoder_decoder else (outputs.hidden_states,)
                     )
 
             # sample
@@ -2964,9 +2950,7 @@ class GenerationMixin:
 
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
-                        if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        (outputs.decoder_hidden_states,) if self.config.is_encoder_decoder else (outputs.hidden_states,)
                     )
 
             # reshape for beam search
@@ -3295,9 +3279,7 @@ class GenerationMixin:
 
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
-                        if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        (outputs.decoder_hidden_states,) if self.config.is_encoder_decoder else (outputs.hidden_states,)
                     )
 
             # reshape for beam search
@@ -3705,9 +3687,7 @@ class GenerationMixin:
 
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
-                        if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        (outputs.decoder_hidden_states,) if self.config.is_encoder_decoder else (outputs.hidden_states,)
                     )
 
             input_ids = torch.cat([input_ids, current_tokens.unsqueeze(-1)], dim=-1)
@@ -4012,9 +3992,7 @@ class GenerationMixin:
 
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
-                        if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        (outputs.decoder_hidden_states,) if self.config.is_encoder_decoder else (outputs.hidden_states,)
                     )
 
             # reshape for beam search

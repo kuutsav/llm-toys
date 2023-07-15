@@ -869,10 +869,7 @@ class TFGenerationMixin:
 
         # If the input length is a tensor (i.e. dynamic length), skip length checks
         if not isinstance(input_ids_seq_length, tf.Tensor):
-            if (
-                generation_config.min_length is not None
-                and generation_config.min_length > generation_config.max_length
-            ):
+            if generation_config.min_length is not None and generation_config.min_length > generation_config.max_length:
                 raise ValueError(
                     f"Unfeasable length constraints: the minimum length ({generation_config.min_length}) is larger"
                     f" than the maximum length ({generation_config.max_length})"
@@ -1144,9 +1141,7 @@ class TFGenerationMixin:
             return decoder_start_token_id
         elif bos_token_id is not None:
             return bos_token_id
-        raise ValueError(
-            "`decoder_start_token_id` or `bos_token_id` has to be defined for encoder-decoder generation."
-        )
+        raise ValueError("`decoder_start_token_id` or `bos_token_id` has to be defined for encoder-decoder generation.")
 
     @staticmethod
     def _expand_inputs_for_generation(
@@ -2279,9 +2274,7 @@ class TFGenerationMixin:
         batch_size, num_beams, cur_len = shape_list(input_ids)
 
         # per batch, beam-item holding current token in loop, pre-populated with `pad_token_id`
-        input_ids_padding = tf.ones((batch_size, num_beams, max_length - cur_len), dtype=tf.int32) * (
-            pad_token_id or 0
-        )
+        input_ids_padding = tf.ones((batch_size, num_beams, max_length - cur_len), dtype=tf.int32) * (pad_token_id or 0)
         running_sequences = tf.concat([input_ids, input_ids_padding], axis=-1)
         sequences = tf.ones((batch_size, num_beams, max_length), dtype=tf.int32) * (pad_token_id or 0)
 
@@ -2336,9 +2329,7 @@ class TFGenerationMixin:
                 best_running_score = running_scores[:, :1] / (max_length**length_penalty)
             else:
                 best_running_score = running_scores[:, :1] / (tf.cast(cur_len, dtype=tf.float32) ** length_penalty)
-            worst_finished_score = tf.where(
-                is_sent_finished, tf.math.reduce_min(scores, axis=1, keepdims=True), -1.0e9
-            )
+            worst_finished_score = tf.where(is_sent_finished, tf.math.reduce_min(scores, axis=1, keepdims=True), -1.0e9)
             improvement_still_possible = tf.math.reduce_any(best_running_score > worst_finished_score)
 
             # 3. is there still a beam that has not finished?

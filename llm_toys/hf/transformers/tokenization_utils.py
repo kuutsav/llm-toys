@@ -495,9 +495,7 @@ class PreTrainedTokenizer(PreTrainedTokenizerBase):
             `List[str]`: The list of tokens.
         """
         # Simple mapping string => AddedToken for special tokens with specific tokenization behaviors
-        all_special_tokens_extended = {
-            str(t): t for t in self.all_special_tokens_extended if isinstance(t, AddedToken)
-        }
+        all_special_tokens_extended = {str(t): t for t in self.all_special_tokens_extended if isinstance(t, AddedToken)}
 
         text, kwargs = self.prepare_for_tokenization(text, **kwargs)
 

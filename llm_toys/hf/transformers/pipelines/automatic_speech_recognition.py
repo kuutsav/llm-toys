@@ -646,9 +646,7 @@ def _find_timestamp_sequence(sequences, tokenizer, feature_extractor, max_source
                         if match_length > 1 and match_length > best_match:
                             best_match = match_length
                             best_idx = idx
-                            end_of_curr_sequence_idx = (
-                                np.where(sequence[index_left + 1 :] >= timestamp_begin)[0][0] + 1
-                            )
+                            end_of_curr_sequence_idx = np.where(sequence[index_left + 1 :] >= timestamp_begin)[0][0] + 1
                             end_of_curr_sequence_idx = end_of_curr_sequence_idx + 1 + index_left
                             # if all the tokens are matched, suffix
                             if index_left == 0 and match_length == len(previous_tokens):

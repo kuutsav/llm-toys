@@ -682,9 +682,7 @@ def compute_predictions_log_probs(
                         )
                     )
 
-        prelim_predictions = sorted(
-            prelim_predictions, key=lambda x: (x.start_log_prob + x.end_log_prob), reverse=True
-        )
+        prelim_predictions = sorted(prelim_predictions, key=lambda x: (x.start_log_prob + x.end_log_prob), reverse=True)
 
         seen_predictions = {}
         nbest = []

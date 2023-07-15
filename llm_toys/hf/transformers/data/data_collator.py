@@ -829,9 +829,7 @@ class DataCollatorForLanguageModeling(DataCollatorMixin):
 
         # 10% of the time, we replace masked input tokens with random word
         # indices_random = torch.bernoulli(torch.full(labels.shape, 0.5)).bool() & masked_indices & ~indices_replaced
-        indices_random = (
-            np.random.binomial(1, 0.5, size=labels.shape).astype(bool) & masked_indices & ~indices_replaced
-        )
+        indices_random = np.random.binomial(1, 0.5, size=labels.shape).astype(bool) & masked_indices & ~indices_replaced
         random_words = np.random.randint(
             low=0, high=len(self.tokenizer), size=np.count_nonzero(indices_random), dtype=np.int64
         )
@@ -1103,9 +1101,7 @@ class DataCollatorForWholeWordMask(DataCollatorForLanguageModeling):
 
         # 10% of the time, we replace masked input tokens with random word
         # indices_random = torch.bernoulli(torch.full(labels.shape, 0.5)).bool() & masked_indices & ~indices_replaced
-        indices_random = (
-            np.random.binomial(1, 0.5, size=labels.shape).astype(bool) & masked_indices & ~indices_replaced
-        )
+        indices_random = np.random.binomial(1, 0.5, size=labels.shape).astype(bool) & masked_indices & ~indices_replaced
         random_words = np.random.randint(low=0, high=len(self.tokenizer), size=labels.shape, dtype=np.int64)
         inputs[indices_random] = random_words[indices_random]
 

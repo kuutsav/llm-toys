@@ -434,9 +434,7 @@ class TrainerMemoryTracker:
         if caller in self.stages:
             return self.stages[caller]
         else:
-            raise ValueError(
-                f"was called from {caller}, but only expect to be called from one of {self.stages.keys()}"
-            )
+            raise ValueError(f"was called from {caller}, but only expect to be called from one of {self.stages.keys()}")
 
     def cpu_mem_used(self):
         """get resident set size memory for the current process"""

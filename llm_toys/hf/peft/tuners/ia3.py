@@ -217,9 +217,7 @@ class IA3Model(torch.nn.Module):
         if isinstance(ia3_config.target_modules, str):
             target_module_found = re.fullmatch(ia3_config.target_modules, key)
         else:
-            target_module_found = any(
-                self._is_valid_match(key, target_key) for target_key in ia3_config.target_modules
-            )
+            target_module_found = any(self._is_valid_match(key, target_key) for target_key in ia3_config.target_modules)
         return target_module_found
 
     def _find_and_replace(self, adapter_name):

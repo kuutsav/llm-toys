@@ -147,9 +147,7 @@ def export_pytorch(
                 model_inputs_device = {}
                 for k, v in model_inputs.items():
                     if isinstance(v, Tuple):
-                        model_inputs_device[k] = tuple(
-                            x.to(device) if isinstance(x, torch.Tensor) else None for x in v
-                        )
+                        model_inputs_device[k] = tuple(x.to(device) if isinstance(x, torch.Tensor) else None for x in v)
                     elif isinstance(v, List):
                         model_inputs_device[k] = [
                             tuple(x.to(device) if isinstance(x, torch.Tensor) else None for x in t) for t in v
@@ -429,9 +427,7 @@ def validate_model_outputs(
     # Check we have a subset of the keys into onnx_outputs against ref_outputs
     ref_outputs_set, onnx_outputs_set = set(ref_outputs_dict.keys()), set(onnx_named_outputs)
     if not onnx_outputs_set.issubset(ref_outputs_set):
-        logger.info(
-            f"\t-[x] ONNX model output names {onnx_outputs_set} do not match reference model {ref_outputs_set}"
-        )
+        logger.info(f"\t-[x] ONNX model output names {onnx_outputs_set} do not match reference model {ref_outputs_set}")
 
         raise ValueError(
             "Outputs doesn't match between reference model and ONNX exported model: "

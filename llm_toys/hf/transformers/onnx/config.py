@@ -112,9 +112,7 @@ class OnnxConfig(ABC):
         self._config = config
 
         if task not in self._tasks_to_common_outputs:
-            raise ValueError(
-                f"{task} is not a supported task, supported tasks: {self._tasks_to_common_outputs.keys()}"
-            )
+            raise ValueError(f"{task} is not a supported task, supported tasks: {self._tasks_to_common_outputs.keys()}")
         self.task = task
 
         self._patching_specs = []
@@ -251,8 +249,7 @@ class OnnxConfig(ABC):
         """
 
         return (
-            compute_serialized_parameters_size(num_parameters, ParameterFormat.Float)
-            >= EXTERNAL_DATA_FORMAT_SIZE_LIMIT
+            compute_serialized_parameters_size(num_parameters, ParameterFormat.Float) >= EXTERNAL_DATA_FORMAT_SIZE_LIMIT
         )
 
     def _generate_dummy_images(
@@ -385,9 +382,7 @@ class OnnxConfig(ABC):
             batch_size = compute_effective_axis_dimension(batch_size, fixed_dimension=OnnxConfig.default_fixed_batch)
             dummy_input = self._generate_dummy_images(batch_size, num_channels, image_height, image_width)
             return dict(preprocessor(images=dummy_input, return_tensors=framework))
-        elif (
-            isinstance(preprocessor, FeatureExtractionMixin) and preprocessor.model_input_names[0] == "input_features"
-        ):
+        elif isinstance(preprocessor, FeatureExtractionMixin) and preprocessor.model_input_names[0] == "input_features":
             # If dynamic axis (-1) we forward with a fixed dimension of 2 samples to avoid optimizations made by ONNX
             batch_size = compute_effective_axis_dimension(batch_size, fixed_dimension=OnnxConfig.default_fixed_batch)
             dummy_input = self._generate_dummy_audio(batch_size, sampling_rate, time_duration, frequency)

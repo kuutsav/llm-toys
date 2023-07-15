@@ -54,9 +54,7 @@ if _has_comet:
     except (ImportError, ValueError):
         _has_comet = False
 
-_has_neptune = (
-    importlib.util.find_spec("neptune") is not None or importlib.util.find_spec("neptune-client") is not None
-)
+_has_neptune = importlib.util.find_spec("neptune") is not None or importlib.util.find_spec("neptune-client") is not None
 if TYPE_CHECKING and _has_neptune:
     try:
         _neptune_version = importlib.metadata.version("neptune")

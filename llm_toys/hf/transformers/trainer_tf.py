@@ -412,9 +412,7 @@ class TFTrainer:
         if is_comet_available():
             experiment = comet_ml.config.get_global_experiment()
             if experiment is not None:
-                experiment._log_metrics(
-                    logs, step=self.global_step, epoch=self.epoch_logging, framework="transformers"
-                )
+                experiment._log_metrics(logs, step=self.global_step, epoch=self.epoch_logging, framework="transformers")
 
         output = {**logs, **{"step": self.global_step}}
 
@@ -498,9 +496,7 @@ class TFTrainer:
 
         if self.args.max_steps > 0:
             t_total = self.args.max_steps
-            epochs = (self.args.max_steps // self.steps_per_epoch) + int(
-                self.args.max_steps % self.steps_per_epoch > 0
-            )
+            epochs = (self.args.max_steps // self.steps_per_epoch) + int(self.args.max_steps % self.steps_per_epoch > 0)
         else:
             t_total = self.steps_per_epoch * self.args.num_train_epochs
             epochs = self.args.num_train_epochs

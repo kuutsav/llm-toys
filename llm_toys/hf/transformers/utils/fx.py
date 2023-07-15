@@ -957,7 +957,7 @@ class HFTracer(Tracer):
                                     if not self.param_shapes_constant
                                     else lambda node: ParameterProxy(self, node, n, attr_val)
                                 )
-                            val_proxy = self.create_proxy("get_attr", n, (), {}, **kwargs)  # type: ignore[arg-type]
+                            val_proxy = self.create_proxy("get_attr", n, (), {}, **kwargs)[arg - type]
                             parameter_proxy_cache[n] = val_proxy
                         return parameter_proxy_cache[n]
                 return None

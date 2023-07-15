@@ -207,9 +207,7 @@ class FlaxGenerationMixin:
             and self.config.decoder.bos_token_id is not None
         ):
             return self.config.decoder.bos_token_id
-        raise ValueError(
-            "`decoder_start_token_id` or `bos_token_id` has to be defined for encoder-decoder generation."
-        )
+        raise ValueError("`decoder_start_token_id` or `bos_token_id` has to be defined for encoder-decoder generation.")
 
     @staticmethod
     def _expand_to_num_beams(tensor, num_beams):
@@ -527,9 +525,7 @@ class FlaxGenerationMixin:
                 FlaxSuppressTokensAtBeginLogitsProcessor(generation_config.begin_suppress_tokens, begin_index)
             )
         if generation_config.forced_decoder_ids is not None:
-            forced_decoder_ids = [
-                [input_ids_seq_length + i[0] - 1, i[1]] for i in generation_config.forced_decoder_ids
-            ]
+            forced_decoder_ids = [[input_ids_seq_length + i[0] - 1, i[1]] for i in generation_config.forced_decoder_ids]
             processors.append(FlaxForceTokensLogitsProcessor(forced_decoder_ids))
         processors = self._merge_criteria_processor_list(processors, logits_processor)
 
@@ -922,9 +918,7 @@ class FlaxGenerationMixin:
             beams_to_keep = 2 * num_beams
             topk_log_probs, topk_indices = lax.top_k(log_probs, k=beams_to_keep)
             topk_beam_indices = topk_indices // vocab_size
-            topk_running_sequences = gather_beams(
-                state.running_sequences, topk_beam_indices, batch_size, beams_to_keep
-            )
+            topk_running_sequences = gather_beams(state.running_sequences, topk_beam_indices, batch_size, beams_to_keep)
             topk_ids = jnp.expand_dims(topk_indices % vocab_size, axis=2)
             topk_sequences = lax.dynamic_update_slice(topk_running_sequences, topk_ids, (0, 0, state.cur_len))
 

@@ -341,9 +341,7 @@ def shard_checkpoint(
     shards = {}
     for idx, shard in enumerate(sharded_state_dicts):
         shard_file = weights_name.replace(".bin", f"-{idx+1:05d}-of-{len(sharded_state_dicts):05d}.bin")
-        shard_file = shard_file.replace(
-            ".safetensors", f"-{idx + 1:05d}-of-{len(sharded_state_dicts):05d}.safetensors"
-        )
+        shard_file = shard_file.replace(".safetensors", f"-{idx + 1:05d}-of-{len(sharded_state_dicts):05d}.safetensors")
         shards[shard_file] = shard
         for key in shard.keys():
             weight_map[key] = shard_file
@@ -396,9 +394,7 @@ def load_sharded_checkpoint(model, folder, strict=True, prefer_safe=True):
             if is_safetensors_available():
                 load_safe = True  # load safe due to preference
             else:
-                logger.warning(
-                    f"Cannot load sharded checkpoint at {folder} safely since safetensors is not installed!"
-                )
+                logger.warning(f"Cannot load sharded checkpoint at {folder} safely since safetensors is not installed!")
         elif not index_present:
             load_safe = True  # load safe since we have no other choice
 

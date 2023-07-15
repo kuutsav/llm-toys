@@ -253,9 +253,7 @@ def window_function(
         return window
 
     if window_length > frame_length:
-        raise ValueError(
-            f"Length of the window ({window_length}) may not be larger than frame_length ({frame_length})"
-        )
+        raise ValueError(f"Length of the window ({window_length}) may not be larger than frame_length ({frame_length})")
 
     padded_window = np.zeros(frame_length)
     offset = (frame_length - window_length) // 2 if center else 0

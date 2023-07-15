@@ -78,9 +78,7 @@ class TrainCommand(BaseTransformersCLICommand):
 
         train_parser.add_argument("--output", type=str, default="./", help="path to saved the trained model.")
 
-        train_parser.add_argument(
-            "--task", type=str, default="text_classification", help="Task to train the model on."
-        )
+        train_parser.add_argument("--task", type=str, default="text_classification", help="Task to train the model on.")
         train_parser.add_argument(
             "--model", type=str, default="bert-base-uncased", help="Model's name or path to stored model."
         )

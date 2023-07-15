@@ -410,9 +410,7 @@ def require_tensorflow_probability(test_case):
     These tests are skipped when TensorFlow probability isn't installed.
 
     """
-    return unittest.skipUnless(is_tensorflow_probability_available(), "test requires TensorFlow probability")(
-        test_case
-    )
+    return unittest.skipUnless(is_tensorflow_probability_available(), "test requires TensorFlow probability")(test_case)
 
 
 def require_torchaudio(test_case):
@@ -1283,9 +1281,7 @@ class TestCasePlus(unittest.TestCase):
 
             # to avoid nuking parts of the filesystem, only relative paths are allowed
             if not tmp_dir.startswith("./"):
-                raise ValueError(
-                    f"`tmp_dir` can only be a relative path, i.e. `./some/path`, but received `{tmp_dir}`"
-                )
+                raise ValueError(f"`tmp_dir` can only be a relative path, i.e. `./some/path`, but received `{tmp_dir}`")
 
             # ensure the dir is empty to start with
             if before is True and path.exists():

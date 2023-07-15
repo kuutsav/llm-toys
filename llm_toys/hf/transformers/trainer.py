@@ -1431,9 +1431,7 @@ class Trainer:
 
             xm.optimizer_step = patched_optimizer_step
         elif is_sagemaker_dp_enabled():
-            model = nn.parallel.DistributedDataParallel(
-                model, device_ids=[int(os.getenv("SMDATAPARALLEL_LOCAL_RANK"))]
-            )
+            model = nn.parallel.DistributedDataParallel(model, device_ids=[int(os.getenv("SMDATAPARALLEL_LOCAL_RANK"))])
         elif self.args.parallel_mode == ParallelMode.DISTRIBUTED:
             if is_torch_neuroncore_available():
                 return model
@@ -1766,9 +1764,7 @@ class Trainer:
                 self._past = None
 
             steps_in_epoch = (
-                len(epoch_iterator)
-                if len_dataloader is not None
-                else args.max_steps * args.gradient_accumulation_steps
+                len(epoch_iterator) if len_dataloader is not None else args.max_steps * args.gradient_accumulation_steps
             )
             self.control = self.callback_handler.on_epoch_begin(args, self.state, self.control)
 
@@ -2185,9 +2181,7 @@ class Trainer:
             else:
                 logger.warning(f"There were missing keys in the checkpoint model loaded: {load_result.missing_keys}.")
         if len(load_result.unexpected_keys) != 0:
-            logger.warning(
-                f"There were unexpected keys in the checkpoint model loaded: {load_result.unexpected_keys}."
-            )
+            logger.warning(f"There were unexpected keys in the checkpoint model loaded: {load_result.unexpected_keys}.")
 
     def _maybe_log_save_evaluate(self, tr_loss, model, trial, epoch, ignore_keys_for_eval):
         if self.control.should_log:
@@ -2824,9 +2818,7 @@ class Trainer:
                 else:
                     torch.save(state_dict, os.path.join(output_dir, WEIGHTS_NAME))
         else:
-            self.model.save_pretrained(
-                output_dir, state_dict=state_dict, safe_serialization=self.args.save_safetensors
-            )
+            self.model.save_pretrained(output_dir, state_dict=state_dict, safe_serialization=self.args.save_safetensors)
 
         if self.tokenizer is not None:
             self.tokenizer.save_pretrained(output_dir)
@@ -3170,9 +3162,7 @@ class Trainer:
                     )
                 if labels_host is not None:
                     labels = nested_numpify(labels_host)
-                    all_labels = (
-                        labels if all_labels is None else nested_concat(all_labels, labels, padding_index=-100)
-                    )
+                    all_labels = labels if all_labels is None else nested_concat(all_labels, labels, padding_index=-100)
 
                 # Set back to None to begin a new accumulation
                 losses_host, preds_host, inputs_host, labels_host = None, None, None, None

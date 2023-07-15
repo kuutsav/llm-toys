@@ -1,5 +1,8 @@
 # llm-toys
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![py\_versions](https://img.shields.io/badge/python-3.10%2B-blue)](https://pypi.org/project/llm-toys/)
+
 Small(7B and below), production-ready finetuned LLMs for a diverse set of useful tasks.
 
 Supported tasks: Paraphrasing, Changing the tone of a passage, Summarization and Theme detection from a conversation,

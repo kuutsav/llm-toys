@@ -540,9 +540,7 @@ class BatchEncoding(UserDict):
 
         return CharSpan(*span_indices) if span_indices is not None else None
 
-    def char_to_token(
-        self, batch_or_char_index: int, char_index: Optional[int] = None, sequence_index: int = 0
-    ) -> int:
+    def char_to_token(self, batch_or_char_index: int, char_index: Optional[int] = None, sequence_index: int = 0) -> int:
         """
         Get the index of the token in the encoded output comprising a character in the original string for a sequence
         of the batch.
@@ -688,9 +686,7 @@ class BatchEncoding(UserDict):
         # Get a function reference for the correct framework
         if tensor_type == TensorType.TENSORFLOW:
             if not is_tf_available():
-                raise ImportError(
-                    "Unable to convert output to TensorFlow tensors format, TensorFlow is not installed."
-                )
+                raise ImportError("Unable to convert output to TensorFlow tensors format, TensorFlow is not installed.")
             import tensorflow as tf
 
             as_tensor = tf.constant
@@ -1571,9 +1567,7 @@ class PreTrainedTokenizerBase(SpecialTokensMixin, PushToHubMixin):
                 )
             self.deprecation_warnings["max_len_single_sentence"] = True
         else:
-            raise ValueError(
-                "Setting 'max_len_single_sentence' is now deprecated. This value is automatically set up."
-            )
+            raise ValueError("Setting 'max_len_single_sentence' is now deprecated. This value is automatically set up.")
 
     @max_len_sentences_pair.setter
     def max_len_sentences_pair(self, value) -> int:
@@ -1908,9 +1902,7 @@ class PreTrainedTokenizerBase(SpecialTokensMixin, PushToHubMixin):
             # For backward compatibility with odl format.
             if isinstance(init_kwargs["auto_map"], (tuple, list)):
                 init_kwargs["auto_map"] = {"AutoTokenizer": init_kwargs["auto_map"]}
-            init_kwargs["auto_map"] = add_model_info_to_auto_map(
-                init_kwargs["auto_map"], pretrained_model_name_or_path
-            )
+            init_kwargs["auto_map"] = add_model_info_to_auto_map(init_kwargs["auto_map"], pretrained_model_name_or_path)
 
         if config_tokenizer_class is None:
             from .models.auto.configuration_auto import AutoConfig  # tests_ignore
@@ -3247,9 +3239,7 @@ class PreTrainedTokenizerBase(SpecialTokensMixin, PushToHubMixin):
         if return_length:
             encoded_inputs["length"] = len(encoded_inputs["input_ids"])
 
-        batch_outputs = BatchEncoding(
-            encoded_inputs, tensor_type=return_tensors, prepend_batch_axis=prepend_batch_axis
-        )
+        batch_outputs = BatchEncoding(encoded_inputs, tensor_type=return_tensors, prepend_batch_axis=prepend_batch_axis)
 
         return batch_outputs
 

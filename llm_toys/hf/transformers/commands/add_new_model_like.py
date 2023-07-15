@@ -205,12 +205,7 @@ def extract_block(content: str, indent_level: int = 0) -> str:
 
         # End of an object
         is_valid_object = len(current_object) > 0
-        if (
-            not is_empty_line(line)
-            and not line.endswith(":")
-            and find_indent(line) == indent_level
-            and is_valid_object
-        ):
+        if not is_empty_line(line) and not line.endswith(":") and find_indent(line) == indent_level and is_valid_object:
             # Closing parts should be included in current object
             if line.lstrip() in end_markers:
                 current_object.append(line)
@@ -512,9 +507,7 @@ def duplicate_module(
             Whether or not to add `# Copied from` statements in the duplicated module.
     """
     if dest_file is None:
-        dest_file = str(module_file).replace(
-            old_model_patterns.model_lower_cased, new_model_patterns.model_lower_cased
-        )
+        dest_file = str(module_file).replace(old_model_patterns.model_lower_cased, new_model_patterns.model_lower_cased)
 
     with open(module_file, "r", encoding="utf-8") as f:
         content = f.read()
@@ -1096,10 +1089,7 @@ def add_model_to_auto_classes(
                 framework = re.search("any_([a-z]*)_class", pattern).groups()[0]
                 if framework in model_classes:
                     new_patterns.extend(
-                        [
-                            pattern.replace("{" + f"any_{framework}_class" + "}", cls)
-                            for cls in model_classes[framework]
-                        ]
+                        [pattern.replace("{" + f"any_{framework}_class" + "}", cls) for cls in model_classes[framework]]
                     )
             elif "{config_class}" in pattern:
                 new_patterns.append(pattern.replace("{config_class}", old_model_patterns.config_class))

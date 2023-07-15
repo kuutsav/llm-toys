@@ -388,9 +388,7 @@ class EpsilonLogitsWarper(LogitsWarper):
 
         min_tokens_to_keep = int(min_tokens_to_keep)
         if min_tokens_to_keep < 1:
-            raise ValueError(
-                f"`min_tokens_to_keep` has to be a strictly positive integer, but is {min_tokens_to_keep}"
-            )
+            raise ValueError(f"`min_tokens_to_keep` has to be a strictly positive integer, but is {min_tokens_to_keep}")
 
         self.epsilon = epsilon
         self.filter_value = filter_value
@@ -428,9 +426,7 @@ class EtaLogitsWarper(LogitsWarper):
 
         min_tokens_to_keep = int(min_tokens_to_keep)
         if min_tokens_to_keep < 1:
-            raise ValueError(
-                f"`min_tokens_to_keep` has to be a strictly positive integer, but is {min_tokens_to_keep}"
-            )
+            raise ValueError(f"`min_tokens_to_keep` has to be a strictly positive integer, but is {min_tokens_to_keep}")
 
         self.epsilon = torch.tensor(epsilon)
         self.filter_value = filter_value
@@ -528,9 +524,7 @@ class EncoderNoRepeatNGramLogitsProcessor(LogitsProcessor):
 
     def __init__(self, encoder_ngram_size: int, encoder_input_ids: torch.LongTensor):
         if not isinstance(encoder_ngram_size, int) or encoder_ngram_size <= 0:
-            raise ValueError(
-                f"`encoder_ngram_size` has to be a strictly positive integer, but is {encoder_ngram_size}"
-            )
+            raise ValueError(f"`encoder_ngram_size` has to be a strictly positive integer, but is {encoder_ngram_size}")
         self.ngram_size = encoder_ngram_size
         if len(encoder_input_ids.shape) == 1:
             encoder_input_ids = encoder_input_ids.unsqueeze(0)
