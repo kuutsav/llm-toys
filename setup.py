@@ -15,7 +15,7 @@ with open("README.md", "r") as fh:
 
 
 def parse_requirements(file_name: str) -> List[str]:
-    with open(file_name, "r") as f:
+    with open("/home/tarnished/Developer/llm-toys/" + file_name, "r") as f:
         return [require.strip() for require in f if require.strip() and not require.startswith("#")]
 
 
