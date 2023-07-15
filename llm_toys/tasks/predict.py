@@ -33,7 +33,8 @@ class PeftQLoraPredictor:
 
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
-            device_map={"": 0},
+            device_map="auto",
+            # device_map={"":0,}
             trust_remote_code=True,
             quantization_config=get_bnb_config(),
         )
@@ -77,8 +78,8 @@ class PeftQLoraPredictor:
 
         with torch.no_grad():
             out = self.model.generate(
-                input_ids=tokenized["input_ids"].to("cuda"),
-                attention_mask=tokenized["attention_mask"].to("cuda"),
+                input_ids=tokenized["input_ids"].to(DEVICE),
+                attention_mask=tokenized["attention_mask"].to(DEVICE),
                 pad_token_id=self.tokenizer.eos_token_id,
                 max_new_tokens=max_new_tokens,
                 num_return_sequences=num_return_sequences,

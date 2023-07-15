@@ -4,7 +4,7 @@ import torch
 from transformers import BitsAndBytesConfig
 
 
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE = "mps" if torch.backends.mps.is_available() else torch.device("cuda" if torch.cuda.is_available() else "cpu")
 DATA_DIR = Path(__file__).parent.parent / "data"
 
 EOC_FORMAT = "### END"
