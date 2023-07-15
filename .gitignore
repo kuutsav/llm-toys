@@ -162,5 +162,4 @@ cython_debug/
 .vscode
 .aim/
 bkup/
-dist/
 models/

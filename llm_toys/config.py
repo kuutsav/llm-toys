@@ -22,6 +22,7 @@ MODEL_CONFIG = {
     },
 }
 
+SUPPORTED_END_TONES = ["casual", "professional", "witty"]
 TASK_TYPES = {"paraphrase_tone"}
 
 

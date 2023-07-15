@@ -2,7 +2,7 @@ from __future__ import annotations
 import json
 from typing import TYPE_CHECKING
 
-from llm_toys.config import DATA_DIR
+from llm_toys.config import DATA_DIR, SUPPORTED_END_TONES
 from llm_toys.prompts import PARAPHRASE_TRAIN_FORMAT, TONE_CHANGE_TRAIN_FORMAT
 
 
@@ -10,6 +10,10 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 paraphrase_tone_data_f = DATA_DIR / "paraphrase_tone.json"
+
+
+def print_warning(message: str) -> None:
+    print(f"\033[93mWARNING: {message}\033[0m")
 
 
 def load_json(fname: str | Path) -> dict:
@@ -52,7 +56,7 @@ def paraphrase_tone_training_data(print_token_stats: bool = False) -> list[str]:
         # Tone: Original -> Casual, Professional, Witty
         # Tone: Casual -> Professional, Witty
         for start_tone in ["original"]:
-            for end_tone in ["casual", "professional", "witty"]:
+            for end_tone in SUPPORTED_END_TONES:
                 if start_tone == end_tone:
                     continue
                 training_data.append(

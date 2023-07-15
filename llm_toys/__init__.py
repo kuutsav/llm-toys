@@ -4,12 +4,14 @@ __version__ = "0.0.7"
 from pathlib import Path
 import sys
 
+from llm_toys.utils import print_warning
 
-print(
-    "\033[93mWARNING: Note that we are using the transformers and peft packages from the source directory, "
-    "not the installed package. BitsandBytes 4bit quantizaztion was only working with the "
+
+print_warning(
+    "Note that we are using the transformers and peft packages from the source directory, "
+    "not the installed package. 4bit bitsandbytes quantization was only working with the "
     "main brach of transformers and peft. Once transformers version 4.31.0 and peft version 0.4.0 is "
-    "published to pypi we will use the published version.\033[0m"
+    "published to pypi we will use the published version."
 )
 
 sys.path.append(str(Path(__file__).parent / "hf"))

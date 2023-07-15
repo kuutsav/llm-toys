@@ -1,19 +1,53 @@
 # llm-toys
 
-Production-ready small LLMs fine-tuned for diverse tasks, all without an OpenAI key.
+Small(7B and below), production-ready finetuned LLMs for a diverse set of useful tasks.
 
+Supported tasks: Paraphrasing, Changing the tone of a passage, Summarization and Theme detection from a conversation,
+Retrieval augmented QA.
 
-## Training
+We finetune LoRAs on quantized 3B and 7B LLMS. The 3B model is finetuned on specific tasks, while the 7B model is
+finetuned on all tasks.
 
-### Paraphrase + Tone change:
+The goal is to be able to finetune and use all these models on a very modest consumer grade hardware.
+
+## Installation
+
 ```bash
-python llm_toys/train.py \
-    --task_type paraphrase_tone \
-    --model_name tiiuae/falcon-7b \
-    --max_length 128 \
-    --batch_size 8 \
-    --gradient_accumulation_steps 1 \
-    --num_train_epochs 3 \
-    --learning_rate 1e-4 \
-    --use_aim
+pip install llm-toys
 ```
+
+> Note that we are using the transformers and peft packages from the source directory, 
+> not the installed package. 4bit bitsandbytes quantization was only working with the 
+> main brach of transformers and peft. Once transformers version 4.31.0 and peft version 0.4.0 is 
+> published to pypi we will use the published version.
+
+## Usage
+
+### Task specific 3B models
+#### Paraphrasing
+```python
+from llm_toys.tasks import Paraphraser
+
+paraphraser = Paraphraser()
+paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.")
+# "Our products are backed by a guarantee of your satisfaction."
+```
+
+#### Tone change
+```python
+paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", "formal", tone="casual")
+# "We've got your back! Our products come with a satisfaction guarantee."
+
+paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", "formal", tone="professional")
+# "We stand behind our products with a satisfaction guarantee."
+
+paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", "formal", tone="witty")
+# "We put our money where our product is! Our satisfaction guarantee ensures you'll be doing happy
+# dances with our products!"
+```
+
+## Roadmap
+
+- [ ] Explore even smaller models.
+- [ ] Explore the generalizability of 3B model across more tasks.
+- [ ] Better evaluation datastes from a diverse set of domains.

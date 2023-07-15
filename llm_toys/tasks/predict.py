@@ -34,7 +34,6 @@ class PeftQLoraPredictor:
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
             device_map="auto",
-            # device_map={"":0,}
             trust_remote_code=True,
             quantization_config=get_bnb_config(),
         )
