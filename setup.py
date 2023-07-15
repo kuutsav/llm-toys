@@ -44,5 +44,5 @@ setuptools.setup(
     install_requires=parse_requirements("requirements.txt"),
     url="https://github.com/kuutsav/llm-toys",
     license="https://opensource.org/license/mit/",
-    python_requires=">=3.9.0",
+    python_requires=">=3.10.0",
 )
