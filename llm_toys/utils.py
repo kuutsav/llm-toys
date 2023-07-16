@@ -73,7 +73,7 @@ def paraphrase_tone_training_data(print_token_stats: bool = False) -> list[str]:
 
 
 def dialogue_summary_topic_training_data(print_token_stats: bool = False) -> list[str]:
-    """Generates training data for both `Summarization` and `Topic detection` from dialogues. Also prints out the
+    """Generates training data for both `Summary` and `Topic` generation from dialogues. Also prints out the
     token stats for the training data to help with picking the `max_length` during training."""
     data = load_json(dialogue_summary_topic_data_f)
 

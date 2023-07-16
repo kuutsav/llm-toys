@@ -16,7 +16,7 @@ TONE_CHANGE_PREDICT_FORMAT = (
 TONE_CHANGE_TRAIN_FORMAT = TONE_CHANGE_PREDICT_FORMAT + "{response}" + EOC_FORMAT
 
 
-# Dialogue Summarization + Topic detection
+# Dialogue Summary + Topic generation
 
 DIALOGUE_SUMMARY_TOPIC_PREDICT_FORMAT = (
     "### Instruction:\nGenerate a Summary and Topic for the following dialogue.\n\n"

@@ -5,7 +5,7 @@
 
 Small(7B and below), production-ready finetuned LLMs for a diverse set of useful tasks.
 
-Supported tasks: Paraphrasing, Changing the tone of a passage, Summarization and Topic detection from a dailogue,
+Supported tasks: Paraphrasing, Changing the tone of a passage, Summary and Topic generation from a dailogue,
 Retrieval augmented QA.
 
 We finetune LoRAs on quantized 3B and 7B models. The 3B model is finetuned on specific tasks, while the 7B model is
@@ -51,7 +51,7 @@ paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone=
 # "When you buy from us, you get a satisfaction guarantee! We're not joking around!"
 ```
 
-#### Dialogue Summarization and Topic generation
+#### Dialogue Summary and Topic generation
 
 ```python
 from llm_toys.tasks import SummaryAndTopicGenerator
@@ -78,7 +78,7 @@ summary_theme_generator.generate_summary_and_topic(
 
 ## Evaluation
 
-### Dialogue Summarization and Topic generation
+### Dialogue Summary and Topic generation
 
 ```json
 {'rouge1': 0.453, 'rouge2': 0.197, 'rougeL': 0.365, 'topic_similarity': 0.888}
