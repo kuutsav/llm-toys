@@ -76,9 +76,31 @@ summary_theme_generator.generate_summary_and_topic(
 #  "topic": "Studio ghibli movie"}
 ```
 
+## Training
+
+### Data
+
+- [Paraphrasing and Tone change](data/paraphrase_tone.json): Contains passages and their paraphrased versions as well
+as the passage in different tones like casual, professional and witty. Used to models to rephrase and change the
+tone of a passage. Data was generated using gpt-35-turbo. A small sample of training passages have also been picked
+up from quora quesions and squad_2 datasets.
+
+- [Dialogue Summary and Topic generation](data/dialogue_summary_topic.json): Contains Dialogues and their Summary
+and Topic. The training data is ~1k records from the training split of the
+[Dialogsum dataset](https://github.com/cylnlp/dialogsum). It also contains ~20 samples from the dev split.
+Data points with longer Summaries and Topics were given priority in the sampling. Note that some(~30) topics
+were edited manually in final training data as the original labeled Topic was just a word and not descriptive enough.
+
 ## Evaluation
 
+### Paraphrasing and Tone change
+
+WIP
+
 ### Dialogue Summary and Topic generation
+
+Evaluation is done on 500 records from the [Dialogsum test](https://github.com/cylnlp/dialogsum/tree/main/DialogSum_Data)
+split.
 
 ```python
 {"rouge1": 0.453, "rouge2": 0.197, "rougeL": 0.365, "topic_similarity": 0.888}
