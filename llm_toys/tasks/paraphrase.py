@@ -23,7 +23,7 @@ class Paraphraser(PeftQLoraPredictor):
         assert (
             model_size.upper() in SUPPORTED_MODEL_SIZES
         ), f"Invalid model size; Supported sizes: {SUPPORTED_MODEL_SIZES}"
-        super().__init__(**MODEL_CONFIG[model_size.upper()], max_length=max_length)
+        super().__init__(**MODEL_CONFIG[model_size.upper()]["paraphrase_tone"], max_length=max_length)
 
     def paraphrase(
         self,
@@ -32,9 +32,8 @@ class Paraphraser(PeftQLoraPredictor):
         max_new_tokens: int = 512,
         temperature: float = 0.3,
         top_p: float = 0.95,
-        num_return_sequences: int = 1,
         adjust_token_lengths: bool = False,
-    ):
+    ) -> str:
         if tone:
             if tone.lower() not in SUPPORTED_END_TONES:
                 print_warning(
@@ -45,15 +44,10 @@ class Paraphraser(PeftQLoraPredictor):
         else:
             input_text = self.paraphrase_format.format(input_text=input_text)
         return super().predict(
-            input_text,
-            max_new_tokens,
-            temperature,
-            top_p,
-            num_return_sequences,
-            adjust_token_lengths,
-        )
+            input_text, max_new_tokens, temperature, top_p, adjust_token_lengths=adjust_token_lengths
+        )[0]
 
-    def explore(self, input_texts: list[str] = None, temperatures: list[float] = [0.1, 0.3, 0.5, 0.8, 1.0]):
+    def explore(self, input_texts: list[str] = None, temperatures: list[float] = [0.1, 0.3, 0.5, 0.8, 1.0]) -> None:
         """This method can be used to explore outputs on a range of temperatures.
         This can help in finding the best temperature that suits the user.
         """
@@ -64,7 +58,7 @@ class Paraphraser(PeftQLoraPredictor):
                 print(f"Temperature: {temperature}")
                 for tone in [None] + SUPPORTED_END_TONES:
                     st = time()
-                    pred = self.paraphrase(input_text, tone=tone, temperature=temperature)[0]
+                    pred = self.paraphrase(input_text, tone=tone, temperature=temperature)
                     total_time += time() - st
                     print(f" ↪ {tone or 'original'}: {pred}")
                     preds.append(pred)

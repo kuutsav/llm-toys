@@ -5,7 +5,7 @@
 
 Small(7B and below), production-ready finetuned LLMs for a diverse set of useful tasks.
 
-Supported tasks: Paraphrasing, Changing the tone of a passage, Summarization and Theme detection from a conversation,
+Supported tasks: Paraphrasing, Changing the tone of a passage, Summarization and Topic detection from a dailogue,
 Retrieval augmented QA.
 
 We finetune LoRAs on quantized 3B and 7B LLMS. The 3B model is finetuned on specific tasks, while the 7B model is
@@ -49,8 +49,16 @@ paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone=
 # ensures you'll be doing happy dances with our products!"
 ```
 
+## Evaluation
+
+### Dialogue Summarization and Topic generation
+
+```json
+{'rouge1': 0.454, 'rouge2': 0.195, 'rougeL': 0.361, 'topic_similarity': 0.886}
+```
+
 ## Roadmap
 
+- [ ] Datasets from a diverse set of domains and a strategy for evaluation.
 - [ ] Explore even smaller models.
 - [ ] Explore the generalizability of 3B model across more tasks.
-- [ ] Better evaluation datastes from a diverse set of domains.

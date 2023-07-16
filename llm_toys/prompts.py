@@ -14,3 +14,14 @@ TONE_CHANGE_PREDICT_FORMAT = (
     "### Input:\n{input_text}\n\n### Response:\n"
 )
 TONE_CHANGE_TRAIN_FORMAT = TONE_CHANGE_PREDICT_FORMAT + "{response}\n\n" + EOC_FORMAT
+
+
+# Dialogue Summarization + Topic detection
+
+DIALOGUE_SUMMARY_TOPIC_PREDICT_FORMAT = (
+    "### Instruction:\nGenerate a Summary and Topic for the following dialogue.\n\n"
+    "### Input:\n{input_text}\n\n### Response:\n"
+)
+DIALOGUE_SUMMARY_TOPIC_TRAIN_FORMAT = (
+    DIALOGUE_SUMMARY_TOPIC_PREDICT_FORMAT + "# Summary:\n{summary}\n\n# Topic:\n{topic}\n\n" + EOC_FORMAT
+)

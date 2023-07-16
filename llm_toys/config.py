@@ -1,7 +1,12 @@
+from __future__ import annotations
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import torch
-from transformers import BitsAndBytesConfig
+
+
+if TYPE_CHECKING:
+    from transformers import BitsAndBytesConfig
 
 
 DEVICE = "mps" if torch.backends.mps.is_available() else torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -13,17 +18,25 @@ DEFAULT_3B_MODEL = "togethercomputer/RedPajama-INCITE-Base-3B-v1"
 DEFAULT_7B_MODEL = "tiiuae/falcon-7b"
 MODEL_CONFIG = {
     "3B": {
-        "model_name": DEFAULT_3B_MODEL,
-        "peft_model_id": "llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone",
+        "paraphrase_tone": {
+            "model_name": DEFAULT_3B_MODEL,
+            "peft_model_id": "llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone",
+        },
+        "dialogue_summary_topic": {
+            "model_name": DEFAULT_3B_MODEL,
+            "peft_model_id": "models/togethercomputer/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic",
+        },
     },
     "7B": {
-        "model_name": DEFAULT_7B_MODEL,
-        "peft_model_id": "llm-toys/falcon-7b-paraphrase-tone",
+        "paraphrase_tone": {
+            "model_name": DEFAULT_7B_MODEL,
+            "peft_model_id": "llm-toys/falcon-7b-paraphrase-tone",
+        }
     },
 }
 
 SUPPORTED_END_TONES = ["casual", "professional", "witty"]
-TASK_TYPES = {"paraphrase_tone"}
+TASK_TYPES = {"paraphrase_tone", "dialogue_summary_topic"}
 
 
 def get_bnb_config() -> BitsAndBytesConfig:

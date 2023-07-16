@@ -3,13 +3,14 @@ import json
 from typing import TYPE_CHECKING
 
 from llm_toys.config import DATA_DIR, SUPPORTED_END_TONES
-from llm_toys.prompts import PARAPHRASE_TRAIN_FORMAT, TONE_CHANGE_TRAIN_FORMAT
+from llm_toys.prompts import DIALOGUE_SUMMARY_TOPIC_TRAIN_FORMAT, PARAPHRASE_TRAIN_FORMAT, TONE_CHANGE_TRAIN_FORMAT
 
 
 if TYPE_CHECKING:
     from pathlib import Path
 
 paraphrase_tone_data_f = DATA_DIR / "paraphrase_tone.json"
+dialogue_summary_topic_data_f = DATA_DIR / "dialogue_summary_topic.json"
 
 
 def print_warning(message: str) -> None:
@@ -64,6 +65,22 @@ def paraphrase_tone_training_data(print_token_stats: bool = False) -> list[str]:
                 )
         # Paraphrase: Original -> Paraphrase
         training_data.append(PARAPHRASE_TRAIN_FORMAT.format(input_text=d["original"], response=d["paraphrase"]))
+
+    if print_token_stats:
+        token_stats(training_data)
+
+    return training_data
+
+
+def dialogue_summary_topic_training_data(print_token_stats: bool = False) -> list[str]:
+    """Generates training data for both `Summarization` and `Topic detection` from dialogues. Also prints out the
+    token stats for the training data to help with picking the `max_length` during training."""
+    data = load_json(dialogue_summary_topic_data_f)
+
+    training_data = [
+        DIALOGUE_SUMMARY_TOPIC_TRAIN_FORMAT.format(input_text=d["dialogue"], summary=d["summary"], topic=d["topic"])
+        for d in data
+    ]
 
     if print_token_stats:
         token_stats(training_data)

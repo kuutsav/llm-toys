@@ -1,7 +1,8 @@
+import llm_toys  # For initlializing the hf modules; Look at __init__.py for more details.
+
 import argparse
 import random
 
-from loguru import logger
 from peft import get_peft_model, LoraConfig, prepare_model_for_kbit_training
 from torch.utils.data import Dataset
 from transformers import (
@@ -13,7 +14,7 @@ from transformers import (
 )
 
 from llm_toys.config import DEFAULT_3B_MODEL, get_bnb_config, TASK_TYPES
-from llm_toys.utils import paraphrase_tone_training_data
+from llm_toys.utils import dialogue_summary_topic_training_data, paraphrase_tone_training_data
 
 
 class CustomDataset(Dataset):
@@ -79,6 +80,8 @@ class PeftQLoraTrainer:
     def load_data(self) -> list[str]:
         if self.args["task_type"].lower() == "paraphrase_tone":
             return paraphrase_tone_training_data()
+        elif self.args["task_type"].lower() == "dialogue_summary_topic":
+            return dialogue_summary_topic_training_data()
         raise ValueError(f"Probably an invalid task type {self.args['task_type']}; Valid task types are {TASK_TYPES}")
 
     @staticmethod
@@ -140,19 +143,19 @@ class PeftQLoraTrainer:
             self._models_initialized = True
 
         data = self.load_data()
-        logger.info(f"Loaded training data; {len(data)} records")
+        print(f"Loaded training data; {len(data)} records")
 
         random.seed(self.args["seed"])
         train_texts, eval_texts = self.get_train_evaluation_texts(self.args["eval_ratio"], data)
-        logger.info(f"{'# Train':<15} : {len(train_texts)}")
+        print(f"{'# Train':<15} : {len(train_texts)}")
         if self.args["eval_ratio"]:
-            logger.info(f"{'# Eval':<15} : {len(eval_texts)}")
+            print(f"{'# Eval':<15} : {len(eval_texts)}")
 
         train_dataset = CustomDataset(self.tokenizer, train_texts, max_length=self.args["max_length"])
-        logger.info(f"{'# Train dataset':<15} : {len(train_dataset)}")
+        print(f"{'# Train dataset':<15} : {len(train_dataset)}")
         if self.args["eval_ratio"]:
             eval_dataset = CustomDataset(self.tokenizer, eval_texts, max_length=args.max_length)
-            logger.info(f"{'# Eval dataset':<15} : {len(eval_dataset)}")
+            print(f"{'# Eval dataset':<15} : {len(eval_dataset)}")
 
         self.set_trainer(train_dataset, eval_dataset if self.args["eval_ratio"] else None)
         self.model.config.use_cache = False
