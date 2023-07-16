@@ -6,7 +6,7 @@
 Small(7B and below), production-ready finetuned LLMs for a diverse set of useful tasks.
 
 Supported tasks: Paraphrasing, Changing the tone of a passage, Summary and Topic generation from a dailogue,
-Retrieval augmented QA.
+~~Retrieval augmented QA(WIP)~~.
 
 We finetune LoRAs on quantized 3B and 7B models. The 3B model is finetuned on specific tasks, while the 7B model is
 finetuned on all the tasks.
