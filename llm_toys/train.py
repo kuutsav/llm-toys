@@ -43,10 +43,14 @@ class PeftQLoraTrainer:
 
     def __init__(self, args: dict):
         self.args = args
-        assert (
-            args["task_type"].lower() in TASK_TYPES
-        ), f"Invalid task type {args['task_type']}; Valid task types are {TASK_TYPES}"
-        self.experiment_name = "-".join(args["task_type"].split("_")).lower()
+        for task_type in args["task_type"].split(","):
+            assert (
+                task_type.strip().lower() in TASK_TYPES
+            ), f"Invalid task type {task_type}; Valid task types are {TASK_TYPES}"
+        self.experiment_name = ""
+        for task_type in args["task_type"].split(","):
+            self.experiment_name += "-".join(task_type.strip().lower().split("_")) + "-"
+        self.experiment_name = self.experiment_name[:-1]
         self._models_initialized = False
 
         if self.args["use_aim"]:
@@ -78,11 +82,18 @@ class PeftQLoraTrainer:
         self.model = get_peft_model(self.model, config)
 
     def load_data(self) -> list[str]:
-        if self.args["task_type"].lower() == "paraphrase_tone":
-            return paraphrase_tone_training_data()
-        elif self.args["task_type"].lower() == "dialogue_summary_topic":
-            return dialogue_summary_topic_training_data()
-        raise ValueError(f"Probably an invalid task type {self.args['task_type']}; Valid task types are {TASK_TYPES}")
+        data = []
+        for task_type in self.args["task_type"].split(","):
+            task_type = task_type.strip().lower()
+            if task_type == "paraphrase_tone":
+                data += paraphrase_tone_training_data()
+            elif task_type == "dialogue_summary_topic":
+                data += dialogue_summary_topic_training_data()
+            else:
+                raise ValueError(
+                    f"Probably an invalid task type {self.args['task_type']}; Valid task types are {TASK_TYPES}"
+                )
+        return data
 
     @staticmethod
     def get_train_evaluation_texts(eval_ratio: float, data: list[str]) -> tuple[list[str], list[str]]:

@@ -109,6 +109,8 @@ split.
 ## Roadmap
 
 - [ ] Add tests.
+- [ ] Ability to switch the LoRAs(for task wise models) without re-initializing the backbone model and tokenizer.
+- [ ] Retrieval augmented QA.
 - [ ] Explore the generalizability of 3B model across more tasks.
 - [ ] Explore even smaller models.
 - [ ] Evaluation strategy for tasks where we don"t have a test/eval dataset handy.
