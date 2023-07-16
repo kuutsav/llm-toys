@@ -49,8 +49,7 @@ class Paraphraser(PeftQLoraPredictor):
 
     def explore(self, input_texts: list[str] = None, temperatures: list[float] = [0.1, 0.3, 0.5, 0.8, 1.0]) -> None:
         """This method can be used to explore outputs on a range of temperatures.
-        This can help in finding the best temperature that suits the user.
-        """
+        This can help in finding the best temperature that suits the user."""
         preds, total_time = [], 0
         for input_text in input_texts or TXTS_TO_EXPLORE.split("\n"):
             print(f"\n{input_text}\n{'-'*len(input_text)}")

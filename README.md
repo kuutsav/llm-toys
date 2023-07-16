@@ -8,8 +8,8 @@ Small(7B and below), production-ready finetuned LLMs for a diverse set of useful
 Supported tasks: Paraphrasing, Changing the tone of a passage, Summarization and Topic detection from a dailogue,
 Retrieval augmented QA.
 
-We finetune LoRAs on quantized 3B and 7B LLMS. The 3B model is finetuned on specific tasks, while the 7B model is
-finetuned on all tasks.
+We finetune LoRAs on quantized 3B and 7B models. The 3B model is finetuned on specific tasks, while the 7B model is
+finetuned on all the tasks.
 
 The goal is to be able to finetune and use all these models on a very modest consumer grade hardware.
 
@@ -27,26 +27,53 @@ pip install llm-toys
 ## Usage
 
 ### Task specific 3B models
+
 #### Paraphrasing
+
 ```python
 from llm_toys.tasks import Paraphraser
 
 paraphraser = Paraphraser()
 paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.")
-# "Our products are backed by a guarantee of your satisfaction."
+# "We offer a satisfaction guarantee for our products."
 ```
 
 #### Tone change
+
 ```python
 paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="casual")
-# "We've got your back! Our products come with a satisfaction guarantee."
+# "We guarantee satisfaction with our products."
 
 paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="professional")
-# "We stand behind our products with a satisfaction guarantee."
+# "Our products are backed by a satisfaction guarantee."
 
 paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="witty")
-# "We put our money where our product is! Our satisfaction guarantee
-# ensures you'll be doing happy dances with our products!"
+# "When you buy from us, you get a satisfaction guarantee! We're not joking around!"
+```
+
+#### Dialogue Summarization and Topic generation
+
+```python
+from llm_toys.tasks import SummaryAndTopicGenerator
+
+summary_theme_generator = SummaryAndTopicGenerator()
+summary_theme_generator.generate_summary_and_topic(
+    """
+    #Person1#: I'm so excited for the premiere of the latest Studio Ghibli movie!
+    #Person2#: What's got you so hyped?
+    #Person1#: Studio Ghibli movies are pure magic! The animation, storytelling, everything is incredible.
+    #Person2#: Which movie is it?
+    #Person1#: It's called "Whisper of the Wind." It's about a girl on a magical journey to save her village.
+    #Person2#: Sounds amazing! I'm in for the premiere.
+    #Person1#: Great! We're in for a visual masterpiece and a heartfelt story.
+    #Person2#: Can't wait to be transported to their world.
+    #Person1#: It'll be an unforgettable experience, for sure!
+    """.strip()
+)
+# {'summary': '#Person1# is excited for the premiere of the latest Studio Ghibli movie.
+#              #Person1# thinks the animation, storytelling, and heartfelt story will be unforgettable.
+#              #Person2# is also excited for the premiere.',
+#  'topic': 'Studio ghibli movie'}
 ```
 
 ## Evaluation
@@ -54,11 +81,12 @@ paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone=
 ### Dialogue Summarization and Topic generation
 
 ```json
-{'rouge1': 0.454, 'rouge2': 0.195, 'rougeL': 0.361, 'topic_similarity': 0.886}
+{'rouge1': 0.453, 'rouge2': 0.197, 'rougeL': 0.365, 'topic_similarity': 0.888}
 ```
 
 ## Roadmap
 
-- [ ] Datasets from a diverse set of domains and a strategy for evaluation.
-- [ ] Explore even smaller models.
+- [ ] Add tests.
 - [ ] Explore the generalizability of 3B model across more tasks.
+- [ ] Explore even smaller models.
+- [ ] Evaluation strategy for tasks where we don't have a test/eval dataset handy.

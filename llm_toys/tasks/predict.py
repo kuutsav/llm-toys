@@ -7,7 +7,7 @@ from transformers import (
     StoppingCriteriaList,
 )
 
-from llm_toys.config import DEVICE, EOC_FORMAT, get_bnb_config
+from llm_toys.config import DEVICE, EOC_FORMAT, get_bnb_config, RESPONSE_FORMAT
 
 
 class StoppingCriteriaSub(StoppingCriteria):
@@ -29,7 +29,7 @@ class PeftQLoraPredictor:
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.max_length = max_length
-        self._eoc_ids = self.tokenizer(EOC_FORMAT, return_tensors="pt")["input_ids"][0]
+        self._response_ids = self.tokenizer(RESPONSE_FORMAT, return_tensors="pt")["input_ids"][0]
 
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
@@ -51,7 +51,7 @@ class PeftQLoraPredictor:
         for i in range(len(tokenized["input_ids"])):
             if len(tokenized["input_ids"][i]) == self.max_length:
                 tokenized["input_ids"][i] = torch.concat(
-                    (tokenized["input_ids"][i][: -len(self._end_ids)], self._end_ids)
+                    (tokenized["input_ids"][i][: -len(self._response_ids)], self._response_ids)
                 )
 
     def predict(
@@ -91,8 +91,10 @@ class PeftQLoraPredictor:
         out_texts = [self.tokenizer.decode(o, skip_special_tokens=True) for o in out]
         preds = []
         for txt in out_texts:
-            response_txt = txt[len(input_text) :]
-            end_ix = response_txt.find(EOC_FORMAT)
-            if end_ix != -1:
-                preds.append(response_txt[:end_ix].strip())
+            response_ix = txt.find(RESPONSE_FORMAT)
+            if response_ix != -1:
+                response_txt = txt[response_ix + len(RESPONSE_FORMAT) :]
+                end_ix = response_txt.find(EOC_FORMAT)
+                if end_ix != -1:
+                    preds.append(response_txt[:end_ix].strip())
         return preds

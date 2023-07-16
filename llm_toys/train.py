@@ -146,6 +146,7 @@ class PeftQLoraTrainer:
         print(f"Loaded training data; {len(data)} records")
 
         random.seed(self.args["seed"])
+        random.shuffle(data)
         train_texts, eval_texts = self.get_train_evaluation_texts(self.args["eval_ratio"], data)
         print(f"{'# Train':<15} : {len(train_texts)}")
         if self.args["eval_ratio"]:

@@ -30,27 +30,24 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
         ), f"Invalid model size; Supported sizes: {SUPPORTED_MODEL_SIZES}"
         super().__init__(**MODEL_CONFIG[model_size.upper()]["dialogue_summary_topic"], max_length=max_length)
 
-    def generate_summary_topic(
+    def generate_summary_and_topic(
         self,
         input_text: str,
         max_new_tokens: int = 512,
         temperature: float = 0.3,
         top_p: float = 0.95,
-        num_return_sequences: int = 1,
         adjust_token_lengths: bool = False,
     ) -> dict[str, str]:
         input_text = self.dialogue_summary_topic_format.format(input_text=input_text)
         try:
             pred = super().predict(
-                input_text,
-                max_new_tokens,
-                temperature,
-                top_p,
-                num_return_sequences,
-                adjust_token_lengths,
+                input_text, max_new_tokens, temperature, top_p, adjust_token_lengths=adjust_token_lengths
             )[0]
         except IndexError:
-            print_warning("Failed prediction")
+            print_warning(
+                "Failed prediction; This could be due to a long input or a small value for `max_new_tokens`. "
+                "If your input is long, try with `adjust_token_lengths=True`. Try increasing `max_new_tokens` otherwise."
+            )
             return {"summary": "", "topic": ""}
         topic_ix = pred.index("# Topic:")
         summary = pred[len("# Summary:") : topic_ix].strip()
@@ -59,15 +56,14 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
 
     def explore(self, input_texts: list[str] = None, temperatures: list[float] = [0.1, 0.3, 0.5, 0.8, 1.0]) -> None:
         """This method can be used to explore outputs on a range of temperatures.
-        This can help in finding the best temperature that suits the user.
-        """
+        This can help in finding the best temperature that suits the user."""
         preds, total_time = [], 0
         for input_text in input_texts or TXTS_TO_EXPLORE:
             print(f"\n{input_text}\n{'-'*110}")
             for i, temperature in enumerate(temperatures):
                 print(f"Temperature: {temperature}")
                 st = time()
-                pred = self.generate_summary_topic(input_text, temperature=temperature)
+                pred = self.generate_summary_and_topic(input_text, temperature=temperature)
                 total_time += time() - st
                 print(f" ↪ summary: {pred['summary']}")
                 print(f" ↪ topic: {pred['topic']}")
