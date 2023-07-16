@@ -70,18 +70,18 @@ summary_theme_generator.generate_summary_and_topic(
     #Person1#: It'll be an unforgettable experience, for sure!
     """.strip()
 )
-# {'summary': '#Person1# is excited for the premiere of the latest Studio Ghibli movie.
+# {"summary": "#Person1# is excited for the premiere of the latest Studio Ghibli movie.
 #              #Person1# thinks the animation, storytelling, and heartfelt story will be unforgettable.
-#              #Person2# is also excited for the premiere.',
-#  'topic': 'Studio ghibli movie'}
+#              #Person2# is also excited for the premiere.",
+#  "topic": "Studio ghibli movie"}
 ```
 
 ## Evaluation
 
 ### Dialogue Summary and Topic generation
 
-```json
-{'rouge1': 0.453, 'rouge2': 0.197, 'rougeL': 0.365, 'topic_similarity': 0.888}
+```python
+{"rouge1": 0.453, "rouge2": 0.197, "rougeL": 0.365, "topic_similarity": 0.888}
 ```
 
 ## Roadmap
@@ -89,4 +89,4 @@ summary_theme_generator.generate_summary_and_topic(
 - [ ] Add tests.
 - [ ] Explore the generalizability of 3B model across more tasks.
 - [ ] Explore even smaller models.
-- [ ] Evaluation strategy for tasks where we don't have a test/eval dataset handy.
+- [ ] Evaluation strategy for tasks where we don"t have a test/eval dataset handy.
