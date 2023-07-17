@@ -35,20 +35,17 @@ pip install llm-toys
 
 ## Available Models
 
-| Model | Size | Tasks |
-| ----- | ---- | ----- |
-| [llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone) 
-<a target="_blank" href="https://colab.research.google.com/drive/1MSl8IDLjs3rgEv8cPHbJLR8GHh2ucT3_">
+| Model | Size | Tasks | Colab |
+| ----- | ---- | ----- | ----- |
+| [llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone) | 3B | Paraphrasing, Tone change | <a target="_blank" href="https://colab.research.google.com/drive/1MSl8IDLjs3rgEv8cPHbJLR8GHh2ucT3_">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a> | 3B | Paraphrasing, Tone change |
-| [llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic)
-<a target="_blank" href="https://colab.research.google.com/drive/1MSl8IDLjs3rgEv8cPHbJLR8GHh2ucT3_">
+</a> |
+| [llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic) | 3B | Dialogue Summary and Topic generation | <a target="_blank" href="https://colab.research.google.com/drive/1MSl8IDLjs3rgEv8cPHbJLR8GHh2ucT3_">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>| 3B | Dialogue Summary and Topic generation |
-| [llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic](https://huggingface.co/llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic)
-<a target="_blank" href="https://colab.research.google.com/drive/1hhANNzQkxhrPIIrxtvf0WT_Ste8KrFjh#scrollTo=d6-OJJq_q5Qr">
+</a> |
+| [llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic](https://huggingface.co/llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic) | 7B | Paraphrasing, Tone change, Dialogue Summary and Topic generation | <a target="_blank" href="https://colab.research.google.com/drive/1MSl8IDLjs3rgEv8cPHbJLR8GHh2ucT3_">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a> | 7B | Paraphrasing, Tone change, Dialogue Summary and Topic generation |
+</a> |
 
 ## Usage
 
