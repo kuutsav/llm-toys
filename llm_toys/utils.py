@@ -55,7 +55,6 @@ def paraphrase_tone_training_data(print_token_stats: bool = False) -> list[str]:
     training_data = []
     for d in data:
         # Tone: Original -> Casual, Professional, Witty
-        # Tone: Casual -> Professional, Witty
         for start_tone in ["original"]:
             for end_tone in SUPPORTED_END_TONES:
                 if start_tone == end_tone:

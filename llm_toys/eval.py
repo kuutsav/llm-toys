@@ -14,12 +14,12 @@ if TYPE_CHECKING:
 dialogue_summary_topic_test_data_f = DATA_DIR / "dialogue_summary_topic_test.json"
 
 
-def summary_topic_test_pred() -> None:
+def summary_topic_test_pred(model_size: str = "3B") -> None:
     """Generates summary and topic for each dialogue in the
     dialogue_summary_topic_test data and saves it to the same file."""
     from llm_toys.tasks import SummaryAndTopicGenerator
 
-    model = SummaryAndTopicGenerator()
+    model = SummaryAndTopicGenerator(model_size=model_size)
     test_data = load_json(dialogue_summary_topic_test_data_f)
 
     for i, d in enumerate(test_data, start=1):
@@ -88,7 +88,3 @@ def summary_topic_test_eval() -> dict[str, float]:
         avg_scores[k] = round(avg_scores[k] / len(all_scores), 3)
 
     return avg_scores
-
-
-if __name__ == "__main__":
-    summary_topic_test_eval()

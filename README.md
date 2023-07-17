@@ -104,6 +104,8 @@ split.
 
 ```python
 {"rouge1": 0.453, "rouge2": 0.197, "rougeL": 0.365, "topic_similarity": 0.888}
+
+{'rouge1': 0.448, 'rouge2': 0.195, 'rougeL': 0.359, 'topic_similarity': 0.886}
 ```
 
 ## Roadmap

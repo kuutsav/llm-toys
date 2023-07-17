@@ -5388,5 +5388,635 @@
         "professional": "Is there any discernible distinction in sound quality between Bose SoundTrue Ultra earphones and Bose SoundSport Wireless earphones?",
         "witty": "Let's dive into the world of audio! Can you hear any variations in sound quality between Bose SoundTrue Ultra earphones and Bose SoundSport Wireless earphones?",
         "paraphrase": "Are there any noticeable discrepancies in sound quality between Bose SoundTrue Ultra earphones and Bose SoundSport Wireless earphones?"
+    },
+    {
+        "original": "My internet connection is constantly dropping!",
+        "casual": "Ugh, my internet keeps going down all the time!",
+        "professional": "I am experiencing frequent disconnections with my internet connection.",
+        "witty": "My internet is playing a disappearing act more often than a magician!",
+        "paraphrase": "I'm facing regular interruptions with my internet connection."
+    },
+    {
+        "original": "The internet speed is ridiculously slow!",
+        "casual": "Seriously, my internet is crawling like a snail!",
+        "professional": "I am dissatisfied with the extremely sluggish internet speed.",
+        "witty": "My internet is slower than a sloth on a lazy Sunday!",
+        "paraphrase": "I'm frustrated by the abnormally slow speed of my internet."
+    },
+    {
+        "original": "I'm being charged for services I didn't sign up for!",
+        "casual": "Hey, they're billing me for stuff I never even asked for!",
+        "professional": "I have unauthorized charges on my bill for services I didn't subscribe to.",
+        "witty": "Looks like my internet company is playing the 'mystery charges' game!",
+        "paraphrase": "I've noticed unapproved fees on my invoice for services I didn't request."
+    },
+    {
+        "original": "Customer support takes forever to respond!",
+        "casual": "Ugh, their customer support is slower than a snail!",
+        "professional": "I'm experiencing significant delays in receiving responses from customer support.",
+        "witty": "Their customer support moves at the speed of a three-toed sloth!",
+        "paraphrase": "I'm frustrated by the prolonged wait times for customer support replies."
+    },
+    {
+        "original": "The router they provided is constantly malfunctioning!",
+        "casual": "The router they gave me keeps acting up all the time!",
+        "professional": "I am encountering persistent issues with the functionality of the provided router.",
+        "witty": "Seems like my router has a mind of its own, and it's not a genius!",
+        "paraphrase": "I'm dealing with ongoing problems with the router they supplied."
+    },
+    {
+        "original": "I'm being charged exorbitant fees for exceeding data limits!",
+        "casual": "They're ripping me off with crazy charges for going over my data limit!",
+        "professional": "I am displeased with the exorbitant fees imposed for surpassing data limits.",
+        "witty": "They're turning my data usage into a profit-making circus with their sky-high fees!",
+        "paraphrase": "I'm unhappy about the excessive charges incurred for surpassing my data limit."
+    },
+    {
+        "original": "The internet service is frequently down during peak hours!",
+        "casual": "Argh! The internet always crashes when everyone's online!",
+        "professional": "I am frequently experiencing service outages during peak hours.",
+        "witty": "It seems like my internet takes peak hours as its vacation time!",
+        "paraphrase": "I'm regularly encountering service disruptions when many users are online."
+    },
+    {
+        "original": "They promised high-speed internet, but it's not as advertised!",
+        "casual": "They said I'd get lightning-fast internet, but it's more like a flickering candle!",
+        "professional": "I am dissatisfied with the internet speed, which falls short of the promised high-speed service.",
+        "witty": "Their 'high-speed' internet is as fast as a snail on tranquilizers!",
+        "paraphrase": "I'm disappointed with the actual internet speed compared to their promised high-speed service."
+    },
+    {
+        "original": "The customer service representative was rude and unhelpful!",
+        "casual": "The customer service guy was a total jerk and didn't do anything to help!",
+        "professional": "I had an unpleasant experience with a rude and unhelpful customer service representative.",
+        "witty": "The customer service rep should win an award for being the worst combination of rude and useless!",
+        "paraphrase": "I encountered an unhelpful and impolite customer service representative."
+    },
+    {
+        "original": "I've had multiple billing errors on my monthly statements!",
+        "casual": "My monthly bills are a mess with all these wrong charges!",
+        "professional": "I have noticed numerous billing errors on my monthly statements.",
+        "witty": "It's like my monthly bill is a work of abstract art, with all the creative billing errors!",
+        "paraphrase": "I've observed several incorrect charges on my monthly invoices."
+    },
+    {
+        "original": "The customer service representatives are unhelpful and rude.",
+        "casual": "The customer service sucks. They're so rude and unhelpful.",
+        "professional": "The customer service representatives are consistently unhelpful and display a lack of professionalism.",
+        "witty": "Dealing with their customer service is like talking to a brick wall. They've perfected the art of rudeness.",
+        "paraphrase": "The customer service team is consistently unhelpful and demonstrates poor manners."
+    },
+    {
+        "original": "My claims take forever to process, and I never receive timely reimbursement.",
+        "casual": "Ugh, it takes ages for them to process my claims and reimburse me.",
+        "professional": "The claim processing time is excessively long, and the reimbursement process lacks timeliness.",
+        "witty": "Waiting for my claims to be processed feels like waiting for a snail to finish a marathon. And forget about timely reimbursement.",
+        "paraphrase": "My claims go through an extended processing period, and reimbursement is often delayed."
+    },
+    {
+        "original": "The network of healthcare providers is limited, and it's difficult to find suitable doctors.",
+        "casual": "Their list of doctors is so limited. It's hard to find a decent one.",
+        "professional": "The network of healthcare providers is considerably restricted, posing challenges in locating suitable doctors.",
+        "witty": "Their network of doctors is like finding a needle in a haystack, except the haystack is really small. Good luck.",
+        "paraphrase": "The health insurance company offers a limited network of providers, making it challenging to find suitable doctors."
+    },
+    {
+        "original": "I'm constantly surprised by unexpected out-of-network charges for medical services.",
+        "casual": "I keep getting hit with surprise bills for out-of-network stuff. It's so annoying!",
+        "professional": "I frequently encounter unexpected charges for medical services provided outside the network, causing frustration and inconvenience.",
+        "witty": "Their favorite pastime seems to be surprising me with unexpected bills for out-of-network services. It's like playing hide-and-seek with my money.",
+        "paraphrase": "I often face unforeseen expenses for medical services received outside the designated network."
+    },
+    {
+        "original": "The insurance company denies coverage for necessary treatments or medications.",
+        "casual": "They keep denying coverage for treatments and meds I actually need.",
+        "professional": "The insurance company consistently refuses coverage for essential treatments and prescribed medications.",
+        "witty": "The insurance company's coverage denial dance is a showstopper. They've mastered the art of saying 'no' to the things I actually need.",
+        "paraphrase": "The insurance company frequently declines coverage for vital treatments and prescribed medications."
+    },
+    {
+        "original": "The premium costs keep increasing, and it's becoming unaffordable.",
+        "casual": "They keep jacking up the premium costs, and I can't afford it anymore.",
+        "professional": "The premium costs have been rising steadily, leading to affordability challenges for policyholders.",
+        "witty": "Their premium price hikes are like a never-ending rollercoaster ride. Hang on tight to your wallet!",
+        "paraphrase": "The insurance company has been consistently raising the premium costs, making it increasingly unaffordable."
+    },
+    {
+        "original": "The process of getting pre-authorization for treatments is overly complicated and time-consuming.",
+        "casual": "Getting pre-authorization for treatments is a huge hassle. It takes forever.",
+        "professional": "The process of obtaining pre-authorization for treatments is excessively convoluted and time-consuming.",
+        "witty": "Getting pre-authorization for treatments is like navigating a maze while wearing blindfolds. It's a time-consuming headache.",
+        "paraphrase": "The process of securing pre-authorization for treatments is overly complex and consumes a significant amount of time."
+    },
+    {
+        "original": "They frequently make errors in processing my claims, leading to unnecessary delays and headaches.",
+        "casual": "They mess up my claims all the time, causing delays and headaches.",
+        "professional": "The insurance company consistently makes errors in processing my claims, resulting in unwarranted delays and inconveniences.",
+        "witty": "Their claim processing system seems to have a black belt in making mistakes. It's like they're competing for the title of 'Claim Mix-up Olympics'.",
+        "paraphrase": "The insurance company frequently commits errors while processing my claims, resulting in unnecessary delays and frustrations."
+    },
+    {
+        "original": "I'm tired of the complex and confusing language used in their policy documents.",
+        "casual": "Their policy docs are so confusing. I can't make sense of them anymore.",
+        "professional": "The policy documents employ intricate and bewildering language, making it challenging for policyholders to understand the coverage details.",
+        "witty": "Reading their policy documents is like trying to decipher an ancient, cryptic code. It's a linguistic labyrinth designed to baffle.",
+        "paraphrase": "The language used in their policy documents is complex and perplexing, making it difficult for policyholders to comprehend the coverage information."
+    },
+    {
+        "original": "They lack transparency in their billing and provide vague explanations for charges.",
+        "casual": "Their billing is shady, and they can't explain the charges properly.",
+        "professional": "The insurance company lacks transparency in their billing practices and fails to provide detailed explanations for the charges incurred.",
+        "witty": "Their billing practices are shrouded in mystery, like a magic trick without a magician. They'll leave you scratching your head, wondering where your money went.",
+        "paraphrase": "The insurance company's billing practices lack transparency, and they provide vague justifications for the charges."
+    },
+    {
+        "original": "I can't find any affordable flights on your website!",
+        "casual": "Hey, why are all the flights on your website so expensive?",
+        "professional": "I'm having difficulty locating affordable flight options on your website.",
+        "witty": "Your flight prices are like unicorns - mythical and expensive!",
+        "paraphrase": "I'm struggling to find budget-friendly flights on your site."
+    },
+    {
+        "original": "I booked a flight, but didn't receive any confirmation email.",
+        "casual": "Hey, I booked a flight but didn't get any confirmation email. What's up with that?",
+        "professional": "I have a concern regarding my flight booking. I haven't received a confirmation email yet.",
+        "witty": "My flight booking seems to have vanished into the Bermuda Triangle of confirmation emails!",
+        "paraphrase": "I made a flight reservation, but I haven't received the confirmation email."
+    },
+    {
+        "original": "The flight I booked got canceled, and I wasn't informed in advance.",
+        "casual": "Dude, my flight got canceled and nobody bothered to tell me beforehand!",
+        "professional": "I am highly disappointed that my flight was canceled without any prior notification.",
+        "witty": "My flight got canceled like a surprise party where no one showed up!",
+        "paraphrase": "My flight was unexpectedly canceled, and I wasn't notified in advance."
+    },
+    {
+        "original": "I requested a refund, but it's taking forever to process!",
+        "casual": "Seriously, it's been ages since I requested a refund. When will I get my money back?",
+        "professional": "I'm growing concerned about the delay in processing my refund request.",
+        "witty": "I feel like my refund is moving slower than a snail on vacation!",
+        "paraphrase": "I've been waiting a long time for my refund to be processed."
+    },
+    {
+        "original": "The website crashed while I was making a payment!",
+        "casual": "Your website crashed just when I was about to pay. What a buzzkill!",
+        "professional": "I experienced a website crash while attempting to make a payment.",
+        "witty": "Your website took a nosedive like a bird that forgot how to fly when I was making a payment!",
+        "paraphrase": "The website crashed while I was in the middle of the payment process."
+    },
+    {
+        "original": "I tried to change my flight dates, but it's not allowing me to do so.",
+        "casual": "I've been trying to change my flight dates, but your system is being a stubborn little bugger!",
+        "professional": "I'm encountering difficulties when attempting to modify my flight dates on your platform.",
+        "witty": "Your system is as flexible as a metal rod when it comes to changing flight dates!",
+        "paraphrase": "I'm unable to change my flight dates using your system."
+    },
+    {
+        "original": "I received a seat assignment, but it's nowhere near my travel companion's seat.",
+        "casual": "Hey, I got a seat, but it's not even close to where my buddy is sitting. Can you fix that?",
+        "professional": "I have a concern regarding my seat assignment, as it is not in proximity to my travel companion's seat.",
+        "witty": "My seat assignment and my friend's seat are playing hide-and-seek on the plane!",
+        "paraphrase": "My seat assignment is far away from where my travel companion is seated."
+    },
+    {
+        "original": "The customer service representative was rude and unhelpful.",
+        "casual": "Your customer service rep was a real jerk - rude and completely useless!",
+        "professional": "I encountered an unpleasant experience with your customer service representative, who was both impolite and unhelpful.",
+        "witty": "Your customer service rep needs a crash course in 'How to Make People Happy 101'!",
+        "paraphrase": "The customer service representative I interacted with was impolite and provided no assistance."
+    },
+    {
+        "original": "I've been on hold for over an hour trying to reach your customer support.",
+        "casual": "I've been stuck on hold for, like, eternity. Seriously, when will someone pick up?",
+        "professional": "I have been waiting on hold for an excessive amount of time while attempting to reach your customer support.",
+        "witty": "Your hold music is making me feel like I'm stuck in a never-ending elevator ride to nowhere!",
+        "paraphrase": "I've been waiting on hold for more than an hour to speak with your customer support."
+    },
+    {
+        "original": "The mobile app crashes every time I try to search for flights.",
+        "casual": "Your mobile app crashes every time I try to search for flights. It's driving me insane!",
+        "professional": "I am encountering frequent crashes on your mobile app whenever I attempt to search for flights.",
+        "witty": "Your app crashes more often than a clumsy kangaroo on a trampoline!",
+        "paraphrase": "The mobile app consistently crashes when I try to search for flights."
+    },
+    {
+        "original": "My internet keeps dropping out!",
+        "casual": "Ugh, my internet keeps bailing on me!",
+        "professional": "I am experiencing frequent internet disconnections.",
+        "witty": "My internet is playing hide and seek with me!",
+        "paraphrase": "I keep losing my internet connection."
+    },
+    {
+        "original": "I can never get through to customer support!",
+        "casual": "Seriously, I can never reach anyone in customer support!",
+        "professional": "I have been facing difficulties in reaching customer support.",
+        "witty": "It's like trying to find a unicorn when I need customer support!",
+        "paraphrase": "I can't seem to get in touch with customer support."
+    },
+    {
+        "original": "My phone bill is always higher than expected!",
+        "casual": "Why is my phone bill always higher than I thought?",
+        "professional": "I consistently receive phone bills that exceed my expectations.",
+        "witty": "My phone bill thinks it's the lottery jackpot!",
+        "paraphrase": "My phone bill is consistently more expensive than I anticipate."
+    },
+    {
+        "original": "The network coverage in my area is terrible!",
+        "casual": "Ugh, the network coverage in my area is a total nightmare!",
+        "professional": "I am extremely dissatisfied with the network coverage in my area.",
+        "witty": "The network coverage in my area is like a game of hide and seek, but it never seeks!",
+        "paraphrase": "I'm really unhappy with the network coverage in my area."
+    },
+    {
+        "original": "I've been waiting for a technician to fix my service for days!",
+        "casual": "I've been twiddling my thumbs waiting for a technician to fix my service!",
+        "professional": "I have been experiencing a prolonged wait for a technician to resolve my service issues.",
+        "witty": "I could write a novel while waiting for a technician to show up!",
+        "paraphrase": "I've been waiting for days for a technician to come and fix my service."
+    },
+    {
+        "original": "The customer service representatives are rude and unhelpful!",
+        "casual": "The customer service reps are just plain rude and useless!",
+        "professional": "I have encountered unhelpful and impolite behavior from customer service representatives.",
+        "witty": "Talking to the customer service reps is like having a conversation with a grumpy cat!",
+        "paraphrase": "The customer service representatives are not helpful and often rude."
+    },
+    {
+        "original": "I keep receiving spam calls even though I'm on the do-not-call list!",
+        "casual": "Ugh, spam calls keep bothering me, and I'm on the do-not-call list!",
+        "professional": "Despite being registered on the do-not-call list, I am consistently receiving unsolicited calls.",
+        "witty": "My do-not-call list is a joke. Spam calls laugh at it!",
+        "paraphrase": "I'm getting unwanted calls despite being on the do-not-call list."
+    },
+    {
+        "original": "The internet speed is much slower than advertised!",
+        "casual": "Seriously, the internet speed is way slower than they promised!",
+        "professional": "The actual internet speed I am experiencing is significantly lower than the advertised speed.",
+        "witty": "The internet speed should win an award for 'slowest turtle'!",
+        "paraphrase": "The internet speed I'm getting is much slower than what was advertised."
+    },
+    {
+        "original": "I've been overcharged on my bill again!",
+        "casual": "They've gone and overcharged me on my bill, again!",
+        "professional": "I have identified another case of overcharging on my bill.",
+        "witty": "My bill has a PhD in overcharging!",
+        "paraphrase": "I've been charged more than I should be on my bill once more."
+    },
+    {
+        "original": "The installation technician didn't show up for the appointment!",
+        "casual": "The installation tech ghosted me and didn't show up for the appointment!",
+        "professional": "The installation technician failed to appear for the scheduled appointment.",
+        "witty": "The installation technician is playing a game of hide and seek, but they forgot to seek!",
+        "paraphrase": "The technician didn't come for the appointment as scheduled."
+    },
+    {
+        "original": "I can never reach a live person when I call customer support.",
+        "casual": "Ugh, I can never get through to a real person when I call customer support.",
+        "professional": "It's incredibly frustrating that I'm unable to reach a live representative when I contact customer support.",
+        "witty": "Talking to a real human when I call customer support? That's like finding a unicorn!",
+        "paraphrase": "I have a hard time getting in touch with an actual person when I reach out to customer support."
+    },
+    {
+        "original": "My insurance claims are always delayed, and it takes forever to get reimbursed.",
+        "casual": "It's so annoying! My insurance claims are always late, and it takes forever to get my money back.",
+        "professional": "I'm consistently experiencing delays with my insurance claims, and the reimbursement process takes an unreasonably long time.",
+        "witty": "I'm starting to think my insurance company has a secret motto: 'Delay, deny, and frustrate!'",
+        "paraphrase": "The processing of my insurance claims is consistently delayed, and I have to wait an excessive amount of time to be reimbursed."
+    },
+    {
+        "original": "The network of doctors and hospitals covered by my plan is very limited.",
+        "casual": "My plan's network of doctors and hospitals is seriously limited. It's a pain!",
+        "professional": "I'm quite dissatisfied with the limited network of doctors and hospitals covered by my insurance plan.",
+        "witty": "My insurance plan's idea of a 'network' is more like a tiny, crowded waiting room.",
+        "paraphrase": "The coverage provided by my insurance plan includes a very restricted selection of doctors and hospitals."
+    },
+    {
+        "original": "The cost of my premiums keeps increasing, but the coverage remains the same.",
+        "casual": "Seriously, my premiums keep going up, but my coverage stays the same. It's a rip-off!",
+        "professional": "I find it unfair that the cost of my premiums continues to rise without any corresponding improvement in the coverage.",
+        "witty": "Paying more for the same coverage feels like buying a designer label with a thrift store quality.",
+        "paraphrase": "I'm frustrated by the constant increase in my premiums while the level of coverage remains unchanged."
+    },
+    {
+        "original": "I'm constantly being billed for services that should be covered by my insurance.",
+        "casual": "It's so annoying! I keep getting billed for things my insurance is supposed to cover.",
+        "professional": "It's highly frustrating to receive bills for services that should be covered by my insurance according to the policy.",
+        "witty": "My insurance company must have a special talent for turning covered services into mysterious exclusions!",
+        "paraphrase": "I repeatedly receive invoices for services that are supposed to be included in my insurance coverage."
+    },
+    {
+        "original": "The prescription drug prices are outrageously high, even with insurance.",
+        "casual": "Can you believe it? The prices of prescription drugs are sky-high, even with insurance!",
+        "professional": "I'm deeply concerned about the exorbitant prices of prescription drugs, despite having insurance coverage.",
+        "witty": "Prescription drug prices with insurance: where 'affordable' is just a mythological concept.",
+        "paraphrase": "The cost of prescription drugs remains excessively high, even when I have insurance."
+    },
+    {
+        "original": "There's always a long wait time at the doctor's office, even for scheduled appointments.",
+        "casual": "I hate it! I always have to wait forever at the doctor's office, even with an appointment.",
+        "professional": "I'm dissatisfied with the consistently long waiting times at the doctor's office, even when I have a scheduled appointment.",
+        "witty": "In the waiting room of my doctor's office, time seems to have its own distorted reality. It just never moves!",
+        "paraphrase": "Regardless of having a scheduled appointment, I always have to endure prolonged waiting times at the doctor's office."
+    },
+    {
+        "original": "The customer service representatives are rude and unhelpful.",
+        "casual": "Ugh, the customer service reps are so rude and useless!",
+        "professional": "I'm deeply disappointed by the unhelpful and discourteous behavior exhibited by the customer service representatives.",
+        "witty": "It's like the customer service reps went to 'Charm School' and took 'Rudeness 101' as an elective.",
+        "paraphrase": "The customer service representatives consistently display rudeness and a lack of assistance."
+    },
+    {
+        "original": "The online portal for managing my healthcare account is clunky and difficult to navigate.",
+        "casual": "The online portal for managing my healthcare account is such a pain to use. It's so clunky!",
+        "professional": "I'm finding the online portal for managing my healthcare account to be cumbersome and challenging to navigate.",
+        "witty": "Using the online portal to manage my healthcare account feels like solving a maze designed by a technologically challenged mouse.",
+        "paraphrase": "The online platform provided for managing my healthcare account is poorly designed and presents significant difficulties in navigation."
+    },
+    {
+        "original": "The explanation of benefits provided by my insurance company is confusing and unclear.",
+        "casual": "I can't make sense of the explanations of benefits my insurance sends me. They're so confusing!",
+        "professional": "The explanations of benefits provided by my insurance company are perplexing and lack clarity.",
+        "witty": "Trying to decipher the explanations of benefits from my insurance is like reading an encrypted message from an alien civilization.",
+        "paraphrase": "The explanations of benefits I receive from my insurance company are convoluted and lack transparency."
+    },
+    {
+        "original": "The video quality keeps buffering and ruining my streaming experience.",
+        "casual": "Ugh, the video keeps buffering and totally ruins my streaming vibes.",
+        "professional": "I'm experiencing frequent buffering issues that significantly disrupt my streaming experience.",
+        "witty": "Buffering: the eternal enemy of uninterrupted streaming. Can't we banish it already?",
+        "paraphrase": "I can't enjoy streaming properly because of the constant video buffering."
+    },
+    {
+        "original": "The content library lacks variety, and I'm running out of things to watch.",
+        "casual": "I'm bored! Their content library seriously needs a makeover. Help!",
+        "professional": "The lack of variety in their content library is becoming increasingly noticeable, leaving me with limited options.",
+        "witty": "I've watched everything but the kitchen sink. Please inject some variety into the content library!",
+        "paraphrase": "I'm getting bored because the streaming service doesn't offer enough diverse content."
+    },
+    {
+        "original": "The customer support takes forever to respond to my queries.",
+        "casual": "Ugh, their customer support is like a snail. Takes ages to respond!",
+        "professional": "I've been experiencing prolonged delays in receiving responses from their customer support team.",
+        "witty": "Is their customer support operating on a time warp? It feels like forever to get a response!",
+        "paraphrase": "I'm frustrated because the customer support team takes too long to answer my questions."
+    },
+    {
+        "original": "The app crashes frequently, disrupting my streaming sessions.",
+        "casual": "The app keeps crashing, and it's driving me nuts during my streaming sessions.",
+        "professional": "The app's frequent crashes are causing significant disruptions to my streaming sessions.",
+        "witty": "The app crashes more often than a clumsy juggler. Can we get some stability, please?",
+        "paraphrase": "The app's constant crashes are interrupting my streaming sessions."
+    },
+    {
+        "original": "The subtitles are often out of sync with the video, making it difficult to follow.",
+        "casual": "The subtitles are out of whack, never in sync with what's happening on screen!",
+        "professional": "The frequent synchronization issues between the subtitles and video make it challenging to follow the content.",
+        "witty": "Subtitles playing a never-ending game of catch-up with the video? It's a challenge to keep up!",
+        "paraphrase": "I find it hard to follow the content because the subtitles are frequently out of sync with the video."
+    },
+    {
+        "original": "The streaming quality deteriorates during peak hours, and it's frustrating.",
+        "casual": "Streaming quality goes down the drain when it's busy, and it's so annoying!",
+        "professional": "I'm experiencing a decline in streaming quality during peak hours, which is increasingly frustrating.",
+        "witty": "The streaming quality during peak hours is like rush hour traffic—slow and infuriating.",
+        "paraphrase": "I'm frustrated because the streaming quality worsens when many people are watching."
+    },
+    {
+        "original": "The recommended content suggestions are way off my interests and preferences.",
+        "casual": "Their content recommendations are so off! They don't know me at all!",
+        "professional": "The recommended content suggestions are consistently misaligned with my interests and preferences.",
+        "witty": "Content recommendations that make no sense? I thought they were supposed to be mind readers!",
+        "paraphrase": "I'm disappointed because the streaming service's content suggestions don't match my interests and preferences."
+    },
+    {
+        "original": "There are too many ads interrupting my viewing experience.",
+        "casual": "Gah! So many ads keep popping up, ruining my binge-watching marathon.",
+        "professional": "The excessive number of ads significantly disrupts my viewing experience.",
+        "witty": "Ads invading my streaming sanctuary? It's like being chased by a relentless salesperson!",
+        "paraphrase": "I can't enjoy my streaming experience because there are too many interruptions from ads."
+    },
+    {
+        "original": "The streaming service doesn't support offline downloads, limiting my flexibility.",
+        "casual": "This streaming service won't let me download anything for offline enjoyment. So inflexible!",
+        "professional": "The lack of offline download support on the streaming service restricts my flexibility in consuming content.",
+        "witty": "No offline downloads? Well, that's one way to keep me on a leash!",
+        "paraphrase": "I feel restricted because I can't download content from the streaming service for offline viewing."
+    },
+    {
+        "original": "The subscription fees keep increasing without any significant improvements.",
+        "casual": "They keep jacking up the subscription fees, but nothing really gets better. What a ripoff!",
+        "professional": "The subscription fees continue to rise without corresponding noticeable enhancements.",
+        "witty": "Subscription fees on a relentless upward journey? I wish they'd invest in a teleportation feature instead!",
+        "paraphrase": "I'm dissatisfied because the streaming service keeps raising the subscription fees without offering significant improvements."
+    },
+    {
+        "original": "I love how many shows and movies are available on the platform!",
+        "casual": "This streaming service has so much cool stuff to watch!",
+        "professional": "The extensive content library of this OTT platform is impressive.",
+        "witty": "With this streaming company, I never run out of binge-worthy content!",
+        "paraphrase": "I'm amazed by the vast selection of shows and movies offered by this streaming service."
+    },
+    {
+        "original": "The streaming quality is excellent; the videos load quickly and play smoothly.",
+        "casual": "The streaming is top-notch; videos start fast and play without any glitches.",
+        "professional": "This OTT platform provides exceptional streaming quality with fast and seamless playback.",
+        "witty": "Streaming with this company is as smooth as butter; no buffering or delays!",
+        "paraphrase": "I'm highly impressed by the exceptional streaming quality of this platform, with quick and seamless playback."
+    },
+    {
+        "original": "Their user interface is intuitive and easy to navigate.",
+        "casual": "The app is super easy to use; everything's just where you'd expect it to be!",
+        "professional": "The user interface of this streaming platform is designed with excellent usability and intuitive navigation.",
+        "witty": "Navigating this app is a breeze; I don't need a map or compass!",
+        "paraphrase": "I find the user interface of this streaming platform to be intuitive and easy to navigate."
+    },
+    {
+        "original": "The recommendations algorithm suggests great shows and movies based on my preferences.",
+        "casual": "Their recommendations are spot-on; they always suggest awesome stuff I like!",
+        "professional": "The recommendation algorithm of this OTT platform effectively tailors content suggestions to match user preferences.",
+        "witty": "This platform's recommendations are like having a personal genie who knows exactly what I want to watch!",
+        "paraphrase": "I'm amazed at how accurately this streaming platform's recommendations align with my preferences."
+    },
+    {
+        "original": "Their customer support team is responsive and helpful.",
+        "casual": "The customer support folks are super nice and always solve my problems quickly.",
+        "professional": "The customer support team of this streaming company is known for their prompt and helpful assistance.",
+        "witty": "Their customer support team deserves a standing ovation; they're the superheroes of the streaming world!",
+        "paraphrase": "I appreciate the responsive and helpful nature of this streaming company's customer support team."
+    },
+    {
+        "original": "The pricing plans are affordable and offer good value for the content provided.",
+        "casual": "Their prices are totally reasonable, and you get a lot of bang for your buck!",
+        "professional": "The pricing plans offered by this OTT platform are competitively priced and offer great value in terms of content.",
+        "witty": "The prices of this streaming service won't break the bank, and the content will keep you entertained for days!",
+        "paraphrase": "I find the pricing plans of this streaming platform to be affordable and provide excellent value for the content offered."
+    },
+    {
+        "original": "The ability to download shows and movies for offline viewing is a game-changer!",
+        "casual": "Being able to download stuff to watch later is a total game-changer!",
+        "professional": "The offline viewing feature provided by this streaming platform is a significant advantage for users.",
+        "witty": "With the download feature, this company lets you take your favorite shows wherever you go, like a personal pocket theater!",
+        "paraphrase": "I consider the ability to download shows and movies for offline viewing to be a revolutionary aspect of this streaming platform."
+    },
+    {
+        "original": "The platform offers a wide range of genres, catering to different interests.",
+        "casual": "They've got something for everyone; the genres they offer are off the charts!",
+        "professional": "This OTT platform provides an extensive selection of genres to cater to a diverse range of interests.",
+        "witty": "This streaming service is like a genre buffet, where you can taste a little bit of everything!",
+        "paraphrase": "I'm impressed by the wide variety of genres offered by this streaming platform, ensuring there's something for everyone."
+    },
+    {
+        "original": "Their original content is unique and captivating.",
+        "casual": "Their original shows are super cool and totally addictive!",
+        "professional": "The original content produced by this streaming company is distinguished and engrossing.",
+        "witty": "Their original shows are like hidden gems; once you find them, you can't get enough!",
+        "paraphrase": "I find the original content created by this streaming platform to be both captivating and distinctive."
+    },
+    {
+        "original": "The streaming service is available on multiple devices, allowing me to watch anywhere.",
+        "casual": "I can watch their stuff on any device, so I'm never bored no matter where I am!",
+        "professional": "This streaming service offers multi-device compatibility, enabling users to enjoy content on various platforms.",
+        "witty": "Thanks to this streaming company, my couch is no longer my only source of entertainment; I can watch anywhere, anytime!",
+        "paraphrase": "I appreciate the convenience of being able to access this streaming service on multiple devices, allowing me to watch content from anywhere."
+    },
+    {
+        "original": "The customer service is excellent!",
+        "casual": "The customer service is awesome!",
+        "professional": "The customer service is top-notch!",
+        "witty": "The customer service is off the charts!",
+        "paraphrase": "The customer service is outstanding!"
+    },
+    {
+        "original": "The network coverage is fantastic!",
+        "casual": "The network coverage is amazing!",
+        "professional": "The network coverage is superb!",
+        "witty": "The network coverage is out of this world!",
+        "paraphrase": "The network coverage is excellent!"
+    },
+    {
+        "original": "The internet speed is impressive!",
+        "casual": "The internet speed is mind-blowing!",
+        "professional": "The internet speed is remarkable!",
+        "witty": "The internet speed is faster than a cheetah!",
+        "paraphrase": "The internet speed is outstanding!"
+    },
+    {
+        "original": "The pricing plans are reasonable!",
+        "casual": "The pricing plans are fair!",
+        "professional": "The pricing plans are competitive!",
+        "witty": "The pricing plans won't break the bank!",
+        "paraphrase": "The pricing plans are affordable!"
+    },
+    {
+        "original": "The reliability of the service is commendable!",
+        "casual": "The service is rock-solid!",
+        "professional": "The service reliability is praiseworthy!",
+        "witty": "The service reliability is as steady as a metronome!",
+        "paraphrase": "The service reliability is impressive!"
+    },
+    {
+        "original": "The mobile app is user-friendly!",
+        "casual": "The mobile app is super easy to use!",
+        "professional": "The mobile app has an intuitive interface!",
+        "witty": "The mobile app is as friendly as a helpful robot!",
+        "paraphrase": "The mobile app is very user-friendly!"
+    },
+    {
+        "original": "The call quality is excellent!",
+        "casual": "The call quality is top-notch!",
+        "professional": "The call quality is exceptional!",
+        "witty": "The call quality is as clear as a bell!",
+        "paraphrase": "The call quality is outstanding!"
+    },
+    {
+        "original": "The billing process is hassle-free!",
+        "casual": "The billing process is a breeze!",
+        "professional": "The billing process is streamlined!",
+        "witty": "The billing process is as smooth as silk!",
+        "paraphrase": "The billing process is convenient!"
+    },
+    {
+        "original": "The customer rewards program is great!",
+        "casual": "The customer rewards program is awesome!",
+        "professional": "The customer rewards program is excellent!",
+        "witty": "The customer rewards program is a party for your wallet!",
+        "paraphrase": "The customer rewards program is fantastic!"
+    },
+    {
+        "original": "The technical support is responsive and helpful!",
+        "casual": "The tech support is always there for you!",
+        "professional": "The technical support is prompt and knowledgeable!",
+        "witty": "The technical support is like having a genius in your pocket!",
+        "paraphrase": "The technical support is reliable and supportive!"
+    },
+    {
+        "original": "I really appreciate how responsive and helpful the customer service team is.",
+        "casual": "The customer service team is super responsive and helpful, which I really appreciate.",
+        "professional": "I highly value the responsiveness and helpfulness of the customer service team.",
+        "witty": "The customer service team is like a superhero squad, always there to save the day!",
+        "paraphrase": "I'm impressed by how quickly and effectively the customer service team assists me."
+    },
+    {
+        "original": "The insurance company provides excellent coverage at competitive rates.",
+        "casual": "The insurance company offers great coverage at really good rates.",
+        "professional": "I am impressed by the insurance company's exceptional coverage at competitive rates.",
+        "witty": "The insurance company's coverage is like a suit of armor, protecting me without breaking the bank!",
+        "paraphrase": "The insurance company's coverage is comprehensive and affordable compared to others."
+    },
+    {
+        "original": "I feel secure knowing that my insurance company has a strong financial standing.",
+        "casual": "It feels good to know my insurance company is financially strong and stable.",
+        "professional": "I have peace of mind knowing that my insurance company has a robust financial standing.",
+        "witty": "My insurance company's financial strength is like a rock-solid foundation for my peace of mind!",
+        "paraphrase": "I trust my insurance company's financial stability to protect my interests."
+    },
+    {
+        "original": "The claims process with my insurance company is hassle-free and efficient.",
+        "casual": "Dealing with claims is a breeze with my insurance company. It's super efficient!",
+        "professional": "I appreciate the seamless and efficient claims process provided by my insurance company.",
+        "witty": "My insurance company handles claims like a ninja, swiftly and without a fuss!",
+        "paraphrase": "The claims process with my insurance company is streamlined and hassle-free."
+    },
+    {
+        "original": "The insurance company offers a wide range of flexible policy options to choose from.",
+        "casual": "I love that the insurance company has lots of flexible policy options to choose from.",
+        "professional": "I value the insurance company's diverse range of flexible policy options.",
+        "witty": "The insurance company's policy options are as flexible as a contortionist, catering to all my needs!",
+        "paraphrase": "The insurance company provides a variety of customizable policy options to suit different requirements."
+    },
+    {
+        "original": "The insurance company's website and mobile app are user-friendly and easy to navigate.",
+        "casual": "The insurance company's website and app are so easy to use and navigate. Love it!",
+        "professional": "I find the insurance company's website and mobile app to be highly user-friendly and intuitive.",
+        "witty": "The insurance company's website and app are like GPS for insurance, guiding me effortlessly!",
+        "paraphrase": "The insurance company's website and mobile app are designed with user-friendliness in mind, making them a pleasure to use."
+    },
+    {
+        "original": "The insurance company offers discounts and rewards for loyal customers.",
+        "casual": "The insurance company hooks up loyal customers with discounts and rewards. Sweet!",
+        "professional": "I appreciate the insurance company's loyalty program, which includes discounts and rewards for long-term customers.",
+        "witty": "The insurance company knows how to treat their loyal customers like VIPs with discounts and rewards fit for kings and queens!",
+        "paraphrase": "The insurance company values loyalty and rewards long-term customers with discounts and incentives."
+    },
+    {
+        "original": "The insurance company has a quick and straightforward policy renewal process.",
+        "casual": "Renewing my policy with the insurance company is a breeze. So quick and easy!",
+        "professional": "I find the insurance company's policy renewal process to be efficient and straightforward.",
+        "witty": "The insurance company's policy renewal process is like a cheetah, lightning-fast and no-nonsense!",
+        "paraphrase": "The insurance company offers a hassle-free and prompt policy renewal experience."
+    },
+    {
+        "original": "The insurance company provides clear and transparent communication regarding policy details and updates.",
+        "casual": "The insurance company keeps me in the loop with clear and transparent policy updates. No surprises!",
+        "professional": "I appreciate the insurance company's commitment to clear and transparent communication regarding policy details and updates.",
+        "witty": "The insurance company's communication is crystal clear, like a superhero's X-ray vision!",
+        "paraphrase": "The insurance company ensures transparent communication, keeping me well-informed about policy details and updates."
+    },
+    {
+        "original": "The insurance company has a knowledgeable and friendly team of agents.",
+        "casual": "The insurance company's agents are super friendly and know their stuff. Love working with them!",
+        "professional": "I highly value the insurance company's knowledgeable and amiable team of agents.",
+        "witty": "The insurance company's agents are like insurance gurus who make the process fun and enlightening!",
+        "paraphrase": "The insurance company's agents possess expertise and approachability, making interactions pleasant and informative."
     }
 ]

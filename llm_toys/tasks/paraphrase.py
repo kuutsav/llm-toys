@@ -1,17 +1,17 @@
 from time import time
 
-from llm_toys.config import MODEL_CONFIG, SUPPORTED_END_TONES, SUPPORTED_MODEL_SIZES
+from llm_toys.config import MODEL_CONFIG, SUPPORTED_END_TONES, SUPPORTED_MODEL_SIZES, TaskType
 from llm_toys.prompts import PARAPHRASE_PREDICT_FORMAT, TONE_CHANGE_PREDICT_FORMAT
 from llm_toys.tasks.predict import PeftQLoraPredictor
 from llm_toys.utils import print_warning
 
 
 TXTS_TO_EXPLORE = """
-"I undrstand you're facing an isue. Lts find a solution together."
-"I'm srry, but I'm unble to resolv this at the moment. Plase try again later."
-"It appeas that you're facing a technial difficulty. Let's wk through it."
-"I appoligize for the inconveience cause by our system. We're workng on a fix."
-"Plase provice me with more dtails so I can bettr assist you."
+I undrstand you're facing an isue. Lts find a solution together.
+I'm srry, but I'm unble to resolv this at the moment. Plase try again later.
+It appeas that you're facing a technial difficulty. Let's wk through it.
+I appoligize for the inconveience cause by our system. We're workng on a fix.
+Plase provice me with more dtails so I can bettr assist you.
 """.strip()
 
 
@@ -23,7 +23,7 @@ class Paraphraser(PeftQLoraPredictor):
         assert (
             model_size.upper() in SUPPORTED_MODEL_SIZES
         ), f"Invalid model size; Supported sizes: {SUPPORTED_MODEL_SIZES}"
-        super().__init__(**MODEL_CONFIG[model_size.upper()]["paraphrase_tone"], max_length=max_length)
+        super().__init__(**MODEL_CONFIG[model_size.upper()][TaskType.PARAPHRASE_TONE], max_length=max_length)
 
     def paraphrase(
         self,
@@ -52,15 +52,17 @@ class Paraphraser(PeftQLoraPredictor):
         This can help in finding the best temperature that suits the user."""
         preds, total_time = [], 0
         for input_text in input_texts or TXTS_TO_EXPLORE.split("\n"):
+            input_text = input_text.strip()
             print(f"\n{input_text}\n{'-'*len(input_text)}")
-            for i, temperature in enumerate(temperatures):
+            for i, temperature in enumerate(temperatures, start=1):
                 print(f"Temperature: {temperature}")
                 for tone in [None] + SUPPORTED_END_TONES:
                     st = time()
                     pred = self.paraphrase(input_text, tone=tone, temperature=temperature)
                     total_time += time() - st
-                    print(f" ↪ {tone or 'original'}: {pred}")
+                    print(f"  ↪ {tone or 'paraphrase'}: {pred}")
                     preds.append(pred)
+
                 if i != len(temperatures):
                     print("\n")
 

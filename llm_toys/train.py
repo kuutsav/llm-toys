@@ -13,7 +13,7 @@ from transformers import (
     TrainingArguments,
 )
 
-from llm_toys.config import DEFAULT_3B_MODEL, get_bnb_config, TASK_TYPES
+from llm_toys.config import DEFAULT_3B_MODEL, get_bnb_config, TASK_TYPES, TaskType
 from llm_toys.utils import dialogue_summary_topic_training_data, paraphrase_tone_training_data
 
 
@@ -85,9 +85,9 @@ class PeftQLoraTrainer:
         data = []
         for task_type in self.args["task_type"].split(","):
             task_type = task_type.strip().lower()
-            if task_type == "paraphrase_tone":
+            if task_type == TaskType.PARAPHRASE_TONE:
                 data += paraphrase_tone_training_data()
-            elif task_type == "dialogue_summary_topic":
+            elif task_type == TaskType.DIALOGUE_SUMMARY_TOPIC:
                 data += dialogue_summary_topic_training_data()
             else:
                 raise ValueError(

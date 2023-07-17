@@ -1,13 +1,12 @@
 from time import time
 
-from llm_toys.config import MODEL_CONFIG, SUPPORTED_END_TONES, SUPPORTED_MODEL_SIZES
+from llm_toys.config import MODEL_CONFIG, SUPPORTED_MODEL_SIZES, TaskType
 from llm_toys.prompts import DIALOGUE_SUMMARY_TOPIC_PREDICT_FORMAT
 from llm_toys.tasks.predict import PeftQLoraPredictor
 from llm_toys.utils import print_warning
 
 
-TXTS_TO_EXPLORE = [
-    """
+TXTS_TO_EXPLORE = """
 #Person1#: I'm so excited for the premiere of the latest Studio Ghibli movie!
 #Person2#: What's got you so hyped?
 #Person1#: Studio Ghibli movies are pure magic! The animation, storytelling, everything is incredible.
@@ -17,8 +16,15 @@ TXTS_TO_EXPLORE = [
 #Person1#: Great! We're in for a visual masterpiece and a heartfelt story.
 #Person2#: Can't wait to be transported to their world.
 #Person1#: It'll be an unforgettable experience, for sure!
+---
+#Person1#: Have you seen the floods happening worldwide? Climate change is causing havoc.
+#Person2#: Yes, it's distressing. We must act fast.
+#Person1#: Rising temperatures intensify rainfall, leading to severe floods.
+#Person2#: Vulnerable communities suffer the most. We need global cooperation.
+#Person1#: Mitigation and adaptation strategies are crucial.
+#Person2#: Governments and international organizations must act now.
+#Person1#: Let's push for a sustainable future. Time is running out.
 """.strip()
-]
 
 
 class SummaryAndTopicGenerator(PeftQLoraPredictor):
@@ -28,7 +34,7 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
         assert (
             model_size.upper() in SUPPORTED_MODEL_SIZES
         ), f"Invalid model size; Supported sizes: {SUPPORTED_MODEL_SIZES}"
-        super().__init__(**MODEL_CONFIG[model_size.upper()]["dialogue_summary_topic"], max_length=max_length)
+        super().__init__(**MODEL_CONFIG[model_size.upper()][TaskType.DIALOGUE_SUMMARY_TOPIC], max_length=max_length)
 
     def generate_summary_and_topic(
         self,
@@ -58,15 +64,16 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
         """This method can be used to explore outputs on a range of temperatures.
         This can help in finding the best temperature that suits the user."""
         preds, total_time = [], 0
-        for input_text in input_texts or TXTS_TO_EXPLORE:
+        for input_text in input_texts or TXTS_TO_EXPLORE.split("---"):
+            input_text = input_text.strip()
             print(f"\n{input_text}\n{'-'*110}")
-            for i, temperature in enumerate(temperatures):
+            for i, temperature in enumerate(temperatures, start=1):
                 print(f"Temperature: {temperature}")
                 st = time()
                 pred = self.generate_summary_and_topic(input_text, temperature=temperature)
                 total_time += time() - st
-                print(f" ↪ summary: {pred['summary']}")
-                print(f" ↪ topic: {pred['topic']}")
+                print(f"  ↪ summary: {pred['summary']}")
+                print(f"  ↪ topic: {pred['topic']}")
                 preds.append(pred)
 
                 if i != len(temperatures):
@@ -77,4 +84,4 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
             (len(self.tokenizer.encode(p["summary"])) + len(self.tokenizer.encode(p["topic"])) + 20 for p in preds)
         )
         n_tokens_per_sec = n_tokens / total_time
-        print(f"---\nGenerated {len(preds)} predictions in {total_time:.2f}s: {n_tokens_per_sec:.2f} tokens/s")
+        print(f"\n---\nGenerated {len(preds)} predictions in {total_time:.2f}s: {n_tokens_per_sec:.2f} tokens/s")
