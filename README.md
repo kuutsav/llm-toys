@@ -19,6 +19,15 @@ The goal is to be able to finetune and use all these models on a very modest con
 pip install llm-toys
 ```
 
+> Might not work without a CUDA enabled GPU
+>
+> If you encounter "The installed version of bitsandbytes was compiled without GPU support" with bitsandbytes
+> then look here https://github.com/TimDettmers/bitsandbytes/issues/112
+>
+> or try
+>
+> cp <path_to_your_venv>/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so <path_to_your_venv>/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cuda117.so 
+>
 > Note that we are using the transformers and peft packages from the source directory, 
 > not the installed package. 4bit bitsandbytes quantization was only working with the 
 > main brach of transformers and peft. Once transformers version 4.31.0 and peft version 0.4.0 is 
@@ -28,9 +37,18 @@ pip install llm-toys
 
 | Model | Size | Tasks |
 | ----- | ---- | ----- |
-| [llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone) | 3B | Paraphrasing, Tone change |
-| [llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic) | 3B | Dialogue Summary and Topic generation |
-| [llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic](https://huggingface.co/llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic) | 7B | Paraphrasing, Tone change, Dialogue Summary and Topic generation |
+| [llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone) 
+<a target="_blank" href="https://colab.research.google.com/drive/1MSl8IDLjs3rgEv8cPHbJLR8GHh2ucT3_">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a> | 3B | Paraphrasing, Tone change |
+| [llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic)
+<a target="_blank" href="https://colab.research.google.com/drive/1MSl8IDLjs3rgEv8cPHbJLR8GHh2ucT3_">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>| 3B | Dialogue Summary and Topic generation |
+| [llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic](https://huggingface.co/llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic)
+<a target="_blank" href="https://colab.research.google.com/drive/1hhANNzQkxhrPIIrxtvf0WT_Ste8KrFjh#scrollTo=d6-OJJq_q5Qr">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a> | 7B | Paraphrasing, Tone change, Dialogue Summary and Topic generation |
 
 ## Usage
 
@@ -134,6 +152,27 @@ and Topic. The training data is ~1k records from the training split of the
 [Dialogsum dataset](https://github.com/cylnlp/dialogsum). It also contains ~20 samples from the dev split.
 Data points with longer Summaries and Topics were given priority in the sampling. Note that some(~30) topics
 were edited manually in final training data as the original labeled Topic was just a word and not descriptive enough.
+
+### Sample training script
+
+To look at all the options
+
+```bash
+python llm_toys/train.py --help
+```
+
+To train a paraphrasing and tone change model
+
+```bash
+python llm_toys/train.py \
+    --task_type paraphrase_tone \
+    --max_length 128 \
+    --batch_size 8 \
+    --gradient_accumulation_steps 1 \
+    --learning_rate 1e-4 \
+    --num_train_epochs 3 \
+    --eval_ratio 0.05
+```
 
 ## Evaluation
 
