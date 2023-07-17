@@ -18,7 +18,6 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 
 # Model and Prompt related
 
-
 class TaskType(str, Enum):
     PARAPHRASE_TONE = "paraphrase_tone"
     DIALOGUE_SUMMARY_TOPIC = "dialogue_summary_topic"
