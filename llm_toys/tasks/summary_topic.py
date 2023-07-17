@@ -36,6 +36,13 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
         ), f"Invalid model size; Supported sizes: {SUPPORTED_MODEL_SIZES}"
         super().__init__(**MODEL_CONFIG[model_size.upper()][TaskType.DIALOGUE_SUMMARY_TOPIC], max_length=max_length)
 
+    @staticmethod
+    def parse_summary_and_topic(pred: str) -> dict[str, str]:
+        topic_ix = pred.index("# Topic:")
+        summary = pred[len("# Summary:") : topic_ix].strip()
+        topic = pred[topic_ix + len("# Topic:") :].strip()
+        return {"summary": summary, "topic": topic}
+
     def generate_summary_and_topic(
         self,
         input_text: str,
@@ -55,10 +62,7 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
                 "If your input is long, try with `adjust_token_lengths=True`. Try increasing `max_new_tokens` otherwise."
             )
             return {"summary": "", "topic": ""}
-        topic_ix = pred.index("# Topic:")
-        summary = pred[len("# Summary:") : topic_ix].strip()
-        topic = pred[topic_ix + len("# Topic:") :].strip()
-        return {"summary": summary, "topic": topic}
+        return self.parse_summary_and_topic(pred)
 
     def explore(self, input_texts: list[str] = None, temperatures: list[float] = [0.1, 0.3, 0.5, 0.8, 1.0]) -> None:
         """This method can be used to explore outputs on a range of temperatures.
@@ -67,7 +71,9 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
         for input_text in input_texts or TXTS_TO_EXPLORE.split("---"):
             input_text = input_text.strip()
             print(f"\n{input_text}\n{'-'*110}")
-            for i, temperature in enumerate(temperatures, start=1):
+            for i, temperature in enumerate(temperatures):
+                if i != 0:
+                    print()
                 print(f"Temperature: {temperature}")
                 st = time()
                 pred = self.generate_summary_and_topic(input_text, temperature=temperature)
@@ -75,9 +81,6 @@ class SummaryAndTopicGenerator(PeftQLoraPredictor):
                 print(f"  ↪ summary: {pred['summary']}")
                 print(f"  ↪ topic: {pred['topic']}")
                 preds.append(pred)
-
-                if i != len(temperatures):
-                    print("\n")
 
         # This is rough count of the tokens as the model also generates new lines and EOC tokens.
         n_tokens = sum(

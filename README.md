@@ -34,21 +34,21 @@ pip install llm-toys
 from llm_toys.tasks import Paraphraser
 
 paraphraser = Paraphraser()
-paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.")
-# "We offer a satisfaction guarantee for our products."
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?")
+# "Could you kindly assist me in canceling my previous order?"
 ```
 
 #### Tone change
 
 ```python
-paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="casual")
-# "We guarantee satisfaction with our products."
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?", tone="casual")
+# "Hey, could you help me cancel my order?"
 
-paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="professional")
-# "Our products are backed by a satisfaction guarantee."
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?", tone="professional")
+# "I would appreciate guidance on canceling my previous order."
 
-paraphraser.paraphrase("Our prduucts come iwth a satisfaction guarantee.", tone="witty")
-# "When you buy from us, you get a satisfaction guarantee! We're not joking around!"
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?", tone="witty")
+# "Hey, I need your help with my last order. Can you wave your magic wand and make it disappear?"
 ```
 
 #### Dialogue Summary and Topic generation
@@ -74,6 +74,42 @@ summary_theme_generator.generate_summary_and_topic(
 #              #Person1# thinks the animation, storytelling, and heartfelt story will be unforgettable.
 #              #Person2# is also excited for the premiere.",
 #  "topic": "Studio ghibli movie"}
+```
+
+### General 7B model
+
+```python
+from llm_toys.tasks import GeneralTaskAssitant
+from llm_toys.config import TaskType
+
+gta = GeneralTaskAssitant()
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?")
+# "Could you assist me in canceling my previous order?"
+
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?", tone="casual")
+# "Hey, can you help me cancel my last order?"
+
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?", tone="professional")
+# "I would appreciate if you could assist me in canceling my previous order."
+
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?", tone="witty")
+# "Oops! Looks like I got a little carried away with my shopping spree. Can you help me cancel my last order?"
+
+chat = """
+#Person1#: I'm so excited for the premiere of the latest Studio Ghibli movie!
+#Person2#: What's got you so hyped?
+#Person1#: Studio Ghibli movies are pure magic! The animation, storytelling, everything is incredible.
+#Person2#: Which movie is it?
+#Person1#: It's called "Whisper of the Wind." It's about a girl on a magical journey to save her village.
+#Person2#: Sounds amazing! I'm in for the premiere.
+#Person1#: Great! We're in for a visual masterpiece and a heartfelt story.
+#Person2#: Can't wait to be transported to their world.
+#Person1#: It'll be an unforgettable experience, for sure!
+""".strip()
+gta.complete(TaskType.DIALOGUE_SUMMARY_TOPIC, chat)
+# {"summary": "#Person1# tells #Person2# about the upcoming Studio Ghibli movie.
+#              #Person1# thinks it's magical and #Person2#'s excited to watch it.",
+#  "topic": "Movie premiere"}
 ```
 
 ## Training

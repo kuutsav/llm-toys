@@ -27,6 +27,7 @@ class TaskType(str, Enum):
 RESPONSE_FORMAT = "\n\n### Response:"
 EOC_FORMAT = "\n\n### END"
 SUPPORTED_MODEL_SIZES = ["3B", "7B"]
+SUPPORTED_MODEL_SIZES_ALL_TASKS = ["7B"]
 DEFAULT_3B_MODEL = "togethercomputer/RedPajama-INCITE-Base-3B-v1"
 DEFAULT_7B_MODEL = "tiiuae/falcon-7b"
 MODEL_CONFIG = {
@@ -41,13 +42,9 @@ MODEL_CONFIG = {
         },
     },
     "7B": {
-        TaskType.PARAPHRASE_TONE: {
+        "all": {
             "model_name": DEFAULT_7B_MODEL,
-            "peft_model_id": "models/tiiuae/falcon-7b-paraphrase-tone-dialogue-summary-topic",
-        },
-        TaskType.DIALOGUE_SUMMARY_TOPIC: {
-            "model_name": DEFAULT_7B_MODEL,
-            "peft_model_id": "models/tiiuae/falcon-7b-paraphrase-tone-dialogue-summary-topic",
+            "peft_model_id": "llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic",
         },
     },
 }

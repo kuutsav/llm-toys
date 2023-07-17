@@ -7,10 +7,10 @@ from llm_toys.utils import print_warning
 
 
 TXTS_TO_EXPLORE = """
-I undrstand you're facing an isue. Lts find a solution together.
-I'm srry, but I'm unble to resolv this at the moment. Plase try again later.
-It appeas that you're facing a technial difficulty. Let's wk through it.
-I appoligize for the inconveience cause by our system. We're workng on a fix.
+I undrstand you're facing an isue. Lts find a solution together.---
+I'm srry, but I'm unble to resolv this at the moment. Plase try again later.---
+It appeas that you're facing a technial difficulty. Let's wk through it.---
+I appoligize for the inconveience cause by our system. We're workng on a fix.---
 Plase provice me with more dtails so I can bettr assist you.
 """.strip()
 
@@ -51,10 +51,12 @@ class Paraphraser(PeftQLoraPredictor):
         """This method can be used to explore outputs on a range of temperatures.
         This can help in finding the best temperature that suits the user."""
         preds, total_time = [], 0
-        for input_text in input_texts or TXTS_TO_EXPLORE.split("\n"):
+        for input_text in input_texts or TXTS_TO_EXPLORE.split("---"):
             input_text = input_text.strip()
             print(f"\n{input_text}\n{'-'*len(input_text)}")
-            for i, temperature in enumerate(temperatures, start=1):
+            for i, temperature in enumerate(temperatures):
+                if i != 0:
+                    print()
                 print(f"Temperature: {temperature}")
                 for tone in [None] + SUPPORTED_END_TONES:
                     st = time()
@@ -62,9 +64,6 @@ class Paraphraser(PeftQLoraPredictor):
                     total_time += time() - st
                     print(f"  ↪ {tone or 'paraphrase'}: {pred}")
                     preds.append(pred)
-
-                if i != len(temperatures):
-                    print("\n")
 
         n_tokens = sum((len(self.tokenizer.encode(txt)) for txt in preds))
         n_tokens_per_sec = n_tokens / total_time
