@@ -103,8 +103,10 @@ Evaluation is done on 500 records from the [Dialogsum test](https://github.com/c
 split.
 
 ```python
+# llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic
 {"rouge1": 0.453, "rouge2": 0.197, "rougeL": 0.365, "topic_similarity": 0.888}
 
+# llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic
 {'rouge1': 0.448, 'rouge2': 0.195, 'rougeL': 0.359, 'topic_similarity': 0.886}
 ```
 
