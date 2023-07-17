@@ -73,8 +73,8 @@ paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?", tone="witty
 ```python
 from llm_toys.tasks import SummaryAndTopicGenerator
 
-summary_theme_generator = SummaryAndTopicGenerator()
-summary_theme_generator.generate_summary_and_topic(
+summary_topic_generator = SummaryAndTopicGenerator()
+summary_topic_generator.generate_summary_and_topic(
     """
     #Person1#: I'm so excited for the premiere of the latest Studio Ghibli movie!
     #Person2#: What's got you so hyped?
