@@ -24,6 +24,14 @@ pip install llm-toys
 > main brach of transformers and peft. Once transformers version 4.31.0 and peft version 0.4.0 is 
 > published to pypi we will use the published version.
 
+## Available Models
+
+| Model | Size | Tasks |
+| ----- | ---- | ----- |
+| [llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-paraphrase-tone) | 3B | Paraphrasing, Tone change |
+| [llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic](https://huggingface.co/llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic) | 3B | Dialogue Summary and Topic generation |
+| [llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic](https://huggingface.co/llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic) | 7B | Paraphrasing, Tone change, Dialogue Summary and Topic generation |
+
 ## Usage
 
 ### Task specific 3B models
