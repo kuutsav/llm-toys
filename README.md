@@ -192,3 +192,4 @@ split.
 - [ ] Explore the generalizability of 3B model across more tasks.
 - [ ] Explore even smaller models.
 - [ ] Evaluation strategy for tasks where we don"t have a test/eval dataset handy.
+- [ ] Data collection strategy and finetuning a model for OpenAI like "function calling"
