@@ -74,7 +74,7 @@ class PeftQLoraTrainer:
         config = LoraConfig(
             r=self.args["lora_r"],
             lora_alpha=self.args["lora_alpha"],
-            target_modules=(None if self.args["model_name"].startswith("gpt2") else ["query_key_value"]),
+            target_modules=["q_proj", "v_proj"] if "llama-2" in self.args["model_name"].lower() else ["query_key_value"],
             lora_dropout=self.args["lora_dropout"],
             bias="none",
             task_type="CAUSAL_LM",
