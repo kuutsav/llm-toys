@@ -157,6 +157,7 @@ To train a paraphrasing and tone change model
 ```bash
 python llm_toys/train.py \
     --task_type paraphrase_tone \
+    --model_name meta-llama/Llama-2-7b \
     --max_length 128 \
     --batch_size 8 \
     --gradient_accumulation_steps 1 \
